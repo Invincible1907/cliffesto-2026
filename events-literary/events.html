@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ALL LINKS  -->
+    <link rel="icon" href="images/favicon.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cliffesto</title>
+    <style type="text/css">
+      body,
+      a,
+      button,
+      div,
+      * {
+        cursor: url("data:image/x-icon;base64,AAACAAEAICAAAAIAAgCoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAX19fADs4MwA0NDQAztDQACel4AATuPsANjIxAE9H7gBPSuEAuJ1DAEhISABMSOsAFLf8AC8vLwAtiKEA////ANCwRQAejPYAMTExABO3+wA2MjYADs//AA/P/wDo6OgAMzMzAM3PzwAL0foAC9D8ADUyNQBOR+sALjVQAOrq6gA1NTUADdP8AMvPzgBIRLMASEKwAExN5ABGSMwALYulAA+1/AA4MzEAS0zlAN7e3gAyMjIAMDZSAE1NTQAifNYA6enpAEtM5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAhGQIAAAAAAAAAAAAAAAAAAAAAAAAZGQAAAAAAAAADGRscGQAAAAAAAAAAAAAAAAAAAAAAGTIZAAAAAAAZGRwcHCIhAAAAAAAAAAAAAAAAAAAAABkyMhkAAAADGRwcFw0cGQAAAAAAAAAAAAAAAAAAAAAZMjIyGQAZGSgcFA0pFhwZAAAAAAAAAAAAAAAAAAAAGTIyMicZABkSGQUNGQ0cGQAAAAAAAAAAAAAAAAAAABkyMicnGRktGTASGRkNBhwZAAAAAAAAAAAAAAAAAAAAGSsnJRkYMTExGRkeGQUcGQAAAAAAAAAAAAAAAAAAAAAZJxktMTExMTEZGRkSGQ8hAAAAAAAAAAAAAAAAAAAAABkZMTExMTEBGTIZGTASGQAAAAAAAAAAAAAAAAAAAAAAGTEQMTExGR0yGTExGRkZAAAAAAAAAAAAAAAAAAAAABkxMTExMRkmMhUBMTETAAAAAAAAAAAAAAAAAAAAAAAZGBAxMTEgCTIMGTExMRkZGRkZGRkAAAAAAAAAAAAAGTEQMTExMQMyCRkxMTExGScyMjIZAAAAAAAAAAAAABkxEDExMTExMQMgMTExMRknMjIyGQAAAAAAAAAAAAAADhAxMRkZBDExMTExMTEZJCcyMhkAAAAAAAAAAAAAABkxEDEZChEZGjExMTExMRknMjIZAAAAAAAAAAAAAAADIxAxLwoREREZMTExMTEZJzIyGQAAAAAAAAAAAAAAABkZGjEsChERES0xMTExGRkZGRkAAAAAAAAAAAAAAAAAHwgZIzEZChEZGjExMRkAAAAAAAAAAAAAAAAAAAAAABkyMgkZGjEsCzExMTEZAAAAAAAAAAAAAAAAAAAAAAAAGTIyMggZIzExMTExGQAAAAAAAAAAAAAAAAAAAAAAAAAHMjIyMgkZGjExDhkAAAAAAAAAAAAAAAAAAAAAAAAAADIyMjIyMggZIxkAAAAAAAAAAAAAAAAAAAAAAAAAAAAZMjIyMjIyLhkTAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkyMjIqGRkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGRkZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//////////////+///f8f//n8H//x8B//4cA//8EAP/+BAH//AAB//wAA//8AAP//AAH//wAB//4AB//8AAAf+AAAP/AAAH/wAAD/4AAB/8AAA//AAAf/wAD//4AB//+AA///gAf//4Af//8AP///Af///x///////////////"),
+          auto;
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <!-- HEADER  -->
+
+    <header class="header">
+      <div class="logo-container">
+        <img src="images/logo.png" />
+      </div>
+
+      <nav class="navbar-items">
+        <a href="../index.html">HOME</a>
+        <a href="../events/events.html">EVENTS</a>
+        <a href="../register/register.html">REGISTER</a>
+      </nav>
+
+      <button class="bx bx-menu menu-icon" onclick="toggleMenu()"></button>
+    </header>
+
+    <div class="menu">
+      <div class="menu-content">
+        <div class="menu-head">CLIFFESTO</div>
+        <div class="menu-list">
+          <div class="menu-home">
+            <a href="../index.html" onclick="toggleMenu()">HOME</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../index.html#about" onclick="toggleMenu()">ABOUT</a>
+          </div>
+
+          <div class="menu-home active">
+            <a href="../events/events.html" onclick="toggleMenu()">EVENTS</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../index.html#contact" onclick="toggleMenu()">CONTACT</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../register/register.html" onclick="toggleMenu()"
+              >REGISTER</a
+            >
+          </div>
+
+          <div class="menu-home">
+            <a href="../sponsor/sponsor.html" onclick="toggleMenu()">SPONSOR</a>
+          </div>
+        </div>
+
+        <div class="menu-socials">
+          <!-- <button
+            class="btn"
+            onclick="window.location.href='https://www.facebook.com/p/Technical-Club-NIT-Uttarakhand-100063961633327/?paipv=0&eav=AfZJJ6VmeJaaYhbYXdO22lXoHynmmCL6t7KHxjCFySi3p7y79N8nUheh9Fl8H9pls20&_rdr'"
+          >
+            <i class="bx bxl-facebook"></i>
+          </button> -->
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=='"
+          >
+            <i class="bx bxl-instagram"></i>
+          </button>
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.linkedin.com/in/cliffestonituk'"
+          >
+            <i class="bx bxl-linkedin"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu-sidebar">
+        <button class="close-button" onclick="toggleMenu()">X</button>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+      <div class="bg-container"></div>
+
+      <div class="container">
+        <div class="item-container">
+          <div class="img-container">
+            <img src="./images/bidwars.png" alt="Event image" />
+          </div>
+
+          <div class="body-container">
+            <div class="overlay"></div>
+
+            <div class="event-info">
+              <p class="title">Bidwars</p>
+              <div class="separator"></div>
+              <p class="info"></p>
+              <p class="price"></p>
+
+              <div class="additional-info">
+                <p class="info">
+                  <i class="fas fa-map-marker-alt"></i>
+                </p>
+                <p class="info">
+                  <i class="far fa-calendar-alt"></i>
+                </p>
+
+                <p class="info description">
+                </p>
+                <div class="guidelines-container">
+                </div>
+              </div>
+            </div>
+            <button
+              class="action"
+              onclick=""
+            >
+              register
+            </button>
+          </div>
+        </div>
+
+        <div class="item-container">
+          <div class="img-container">
+            <img src="./images/prashnotsav.jpg" alt="Event image" />
+          </div>
+
+          <div class="body-container">
+            <div class="overlay"></div>
+
+            <div class="event-info">
+              <p class="title">Prashnotsav</p>
+              <div class="separator"></div>
+              <p class="info">Prize Pool Worth Rs.24,000</p>
+              <p class="price">Included with Pass</p>
+
+              <div class="additional-info">
+                <p class="info">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Venue : NIT, Uttarakhand
+                </p>
+                <p class="info">
+                  <i class="far fa-calendar-alt"></i>
+                  1 March - 2 March 2025
+                </p>
+
+                <p class="info description">
+                  This year, as part of the festivities, we're hosting an
+                  exciting Quiz Competition designed to challenge your knowledge
+                  and wits across three popular themes, ANIME, BOLLYWOOD and
+                  TECH-QUIZ with a prize pool of ₹8,000 per category!!
+                </p>
+                <div class="guidelines-container">
+                  <a class="guidelines" href="guidelines/prashn.pdf"
+                    >View Guidelines</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="action"
+              onclick="window.location.href='https://unstop.com/p/prashnotsav-cliffesto25-national-institute-of-technology-nit-uttarakhand-1379418'"
+            >
+              register
+            </button>
+          </div>
+        </div>
+
+        <div class="item-container">
+          <div class="img-container">
+            <img src="./images/antakshari.jpg" alt="Event image" />
+          </div>
+
+          <div class="body-container">
+            <div class="overlay"></div>
+
+            <div class="event-info">
+              <p class="title">Open Mic</p>
+              <div class="separator"></div>
+              <p class="info">Prize Pool Worth Rs.15,000</p>
+              <p class="price">Included with Pass</p>
+
+              <div class="additional-info">
+                <p class="info">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Venue : NIT, Uttarakhand
+                </p>
+                <p class="info">
+                  <i class="far fa-calendar-alt"></i>
+                  28 February 2025
+                </p>
+
+                <p class="info description">
+                  An open mic is the perfect platform to express yourself,
+                  showcase your talent, and captivate the audience while
+                  creating an unforgettable buzz of creativity and excitement.
+                </p>
+                <div class="guidelines-container">
+                  <a class="guidelines" href="guidelines/open.pdf"
+                    >View Guidelines</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="action"
+              onclick="window.location.href='https://unstop.com/competitions/open-mic-cliffesto25-national-institute-of-technology-nit-uttarakhand-1379469'"
+            >
+              register
+            </button>
+          </div>
+        </div>
+
+        <div class="item-container">
+          <div class="img-container">
+            <img src="./images/Mun.jpg" alt="Event image" />
+          </div>
+
+          <div class="body-container">
+            <div class="overlay"></div>
+
+            <div class="event-info">
+              <p class="title">Mun</p>
+              <div class="separator"></div>
+              <p class="info"></p>
+              <p class="price"></p>
+
+              <div class="additional-info">
+                <p class="info">
+                  <i class="fas fa-map-marker-alt"></i>
+                </p>
+                <p class="info">
+                  <i class="far fa-calendar-alt"></i>
+                </p>
+
+                <p class="info description">
+                </p>
+                <div class="guidelines-container">
+                </div>
+              </div>
+            </div>
+            <button
+              class="action"
+              onclick=""
+            >
+              register
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <!--=============== GSAP JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+    integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== SCROLL TRIGGER JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+    integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== Baffle JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+
+  <!--=============== SCMOOTH SCROLL JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.1/dist/smooth-scrollbar.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="script.js">
+    document.addEventListener('DOMContentLoaded', function () {
+       // Initialize Smooth Scrollbar on the body element
+       const bodyScrollbar = Scrollbar.init(document.body);
+
+       // Enable smooth scrolling
+       bodyScrollbar.setPosition(0, 0, 0);
+     });
+  </script>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ALL LINKS  -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cliffesto</title>
+    <style type="text/css">
+      body,
+      a,
+      button,
+      div,
+      * {
+        cursor: url("data:image/x-icon;base64,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"),
+          auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER  -->
+
+    <header class="header">
+      <div class="logo-container">
+        <img src="images/logo1.png" />
+      </div>
+
+      <nav class="navbar-items">
+        <a href="#">HOME</a>
+        <a href="events/events.html">EVENTS</a>
+        <a href="register/register.html">REGISTER</a>
+      </nav>
+
+      <button class="bx bx-menu menu-icon" onclick="toggleMenu()"></button>
+    </header>
+
+    <div class="menu">
+      <div class="menu-content">
+        <div class="menu-head">CLIFFESTO</div>
+        <div class="menu-list">
+          <div class="menu-home">
+            <a href="#" onclick="toggleMenu()">HOME</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="#about" onclick="toggleMenu()">ABOUT</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="events/events.html" onclick="toggleMenu()">EVENTS</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="register/register.html" onclick="toggleMenu()">REGISTER</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="sponsor/sponsor.html" onclick="toggleMenu()">SPONSOR</a>
+          </div>
+        </div>
+
+        <div class="menu-socials">
+          <!-- <button
+			  class="btn"
+			  onclick="window.location.href='https://www.facebook.com/p/Technical-Club-NIT-Uttarakhand-100063961633327/?paipv=0&eav=AfZJJ6VmeJaaYhbYXdO22lXoHynmmCL6t7KHxjCFySi3p7y79N8nUheh9Fl8H9pls20&_rdr'"
+			>
+			  <i class="bx bxl-facebook"></i>
+			</button> -->
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=='"
+          >
+            <i class="bx bxl-instagram"></i>
+          </button>
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.linkedin.com/in/cliffestonituk'"
+          >
+            <i class="bx bxl-linkedin"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu-sidebar">
+        <button class="close-button" onclick="toggleMenu()">X</button>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+      <!-- -----------landing page------------ -->
+      <section class="landing-page" id="home">
+        <div class="landing-bg-container">
+          <div class="title">
+            <h1>CLIFFESTO'26</h1>
+          </div>
+
+          <div class="landing-page-img">
+            <img src="images/astronaut.png" alt="" />
+          </div>
+
+          <div class="bx bxs-chevron-down jumping-arrow"></div>
+        </div>
+      </section>
+
+      <!-- ------------about us------------ -->
+
+      <section class="about" id="about">
+        <div class="about-container">
+          <div class="about-left-section">
+            <img src="images/elem-2.png" />
+          </div>
+
+          <div class="about-right-section">
+            <h3>ABOUT US</h3>
+
+            <p>
+              Welcome to Cliffesto 2026, where innovation meets celebration!
+              Step into the vibrant world of NIT's annual techno-cultural fest,
+              a one-of-a-kind extravaganza that bridges the realms of
+              technology, creativity, and culture. Cliffesto is more than just
+              an event—it's a symphony of ideas, talent, and passion, designed
+              to ignite the spark of imagination and innovation in every
+              participant. With electrifying competitions, enriching workshops,
+              mesmerizing cultural performances, and inspiring sessions by
+              thought leaders, Cliffesto is the ultimate confluence of
+              technology and art. Join us in this grand celebration, where the
+              boundaries between tech and culture dissolve, and the future of
+              creativity comes to life. Celebrate the spirit of innovation and
+              culture at Cliffesto 2026!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------events--------------- -->
+
+      <section class="events" id="events">
+        <div class="event-main-container">
+          <div class="event-left-section">
+            <h3>EVENTS</h3>
+
+            <p>
+              Get ready to experience the best of both worlds at Cliffesto 2026,
+              our college's annual techno-cultural fest! Prepare for an
+              unforgettable fusion of innovation, creativity, and culture, with
+              events like Cadathon, where designs come to life; the thrilling
+              FPV Drone Race, a spectacle of skill and speed; and a captivating
+              Treasure Hunt that'll challenge your wit and instincts. But that's
+              not all—Cliffesto brings a cultural twist with breathtaking
+              performances, engaging workshops, and interactive showcases that
+              celebrate the diversity of talent. Whether you're a tech wizard, a
+              creative soul, or someone ready to soak in the fest's vibrant
+              energy, Cliffesto 2026 has something for everyone. Join us for an
+              electrifying journey where technology and culture collide in the
+              most spectacular way.
+              <br />
+              Cliffesto 2026: Where innovation and culture take the stage!
+            </p>
+
+            <button
+              class="btn"
+              onclick="window.location.href='events/events.html'"
+            >
+              EXPLORE
+            </button>
+          </div>
+
+          <div class="event-right-section">
+            <div class="event-item">
+              <a href="events-cultural/events.html">
+                <img src="images/p2.png" alt="planet" />
+                <p>
+                  <span>CULTURAL EVENTS</span>
+                  Our fest's cultural events feature dance, music, drama,
+                  fashion shows, skits, poetry, debates, storytelling, art,
+                  comedy, and traditional performances.
+                  <button class="btn">REGISTER</button>
+                </p>
+              </a>
+            </div>
+            <div class="event-item">
+              <a href="events-literary/events.html">
+                <img src="images/p1.png" alt="planet" />
+                <p>
+                  <span>LITERARY EVENTS</span>
+                  Our fest's literary events include debate, quiz, poetry, storytelling, essay writing, elocution, creative writing, and book discussions.
+                  <button class="btn">REGISTER</button>
+                </p>
+              </a>
+            </div>
+            <div class="event-item">
+              <a href="events-technical/events.html">
+                <img src="images/p3.png" alt="planet" />
+                <p>
+                  <span>TECHNICAL EVENTS</span>
+                  Our fest's technical events include coding, robotics,
+                  hackathons, AI challenges, quizzes, tech debates, workshops,
+                  circuit design, gaming, and innovation expos.
+                  <button class="btn">REGISTER</button>
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+
+		<!-- --------------------navikarnam----------------------- -->
+      <!-- <section class="navikarnam" id="navikarnam">
+			<div class="navi-right-section">
+				<h1>NAVIKARNAM</h1>
+				<p>Navikarnam hosts two compelling events: the Young Scientist Innovation and Abstract Idea Submission. The Young Scientist Innovation event invites participants to showcase groundbreaking projects, fostering scientific inquiry and innovative problem-solving. Simultaneously, the Abstract Idea Submission event celebrates abstract thinking, challenging individuals to present revolutionary concepts with the potential to reshape various domains. These events embody Navikarnam's commitment to inspiring and recognizing the ingenuity of participants, encouraging their contributions to the dynamic landscape of science and innovation.</p>
+			</div>
+			<div class="navi-left-section">
+				<div class="navi-row">
+					<img src="images/abstract idea.jpg" onclick="window.location.href = 'events-navikarnam/events.html'">
+					<div class="navi-row-content">
+						<h1>Abstract Idea Submission</h1>
+						<p>Students from different universities and colleges are eligible for this competition where students
+							must come up with practical ideas which may contribute for the betterment of our country. Team
+							with minimum 3 members are eligible.</p>
+					</div>
+					
+				</div>
+				
+				<div class="navi-row">
+					<img src="images/young scientist.jpg" onclick="window.location.href = 'events-navikarnam/events.html'">
+					<div class="navi-row-content">
+						<h1>Young Scientist Innovation</h1>
+					<p>Students belonging to schools within Uttarakhand are eligible for this competition where students
+						must come up with practical ideas which may contribute for the betterment of our state
+						Uttarakhand. Team with minimum 3 members are eligible.</p>
+					</div>
+				</div>
+			</div>
+
+			
+
+		</section> -->
+      <!-- ----------------------contact us----------------- -->
+
+      <section class="contact" id="contact">
+        <div class="bg-image-container">
+          <img src="images/bg-4.png" />
+        </div>
+
+        <div class="contact-left-section">
+          <h3>CONTACT US</h3>
+          <p>
+            Whether you have questions about event details, registration, or are
+            a company eager to collaborate, feel free to connect with us. Your
+            enthusiasm and participation are what make Cliffesto 2026 a truly
+            unforgettable celebration of innovation and culture.
+          </p>
+        </div>
+
+        <div class="contact-right-section">
+          <!-- <form id="contactForm" action="/submit" method="post">
+					<div class="input-field">
+							<input type="text" name="fullName" placeholder="Full Name" required>
+					</div>
+					<div class="input-field">
+							<input type="email" name="emailAddress" placeholder="Email Address" required>
+					</div>
+					<div class="input-field">
+						<input type="text" name="emailSubject" placeholder="Email Subject" required>
+					</div>
+
+					<div class="textarea-field">
+						<textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+
+					<div class="submit-button">
+							<button type="submit" class="btn">Submit</button>
+					</div>
+			</form> -->
+
+          <form action="" class="contact__form" id="contact-form">
+            <div class="input-field">
+              <input
+                type="text"
+                name="user_name"
+                class="contact__input"
+                id="name"
+                required
+                placeholder="Full Name"
+              />
+            </div>
+
+            <div class="input-field">
+              <input
+                type="email"
+                name="user_email"
+                class="contact__input"
+                id="email"
+                required
+                placeholder="Email Address"
+              />
+            </div>
+
+            <div class="input-field">
+              <input
+                type="text"
+                name="user_subject"
+                class="contact__input"
+                id="subject"
+                required
+                placeholder="Subject"
+              />
+            </div>
+
+            <div class="textarea-field">
+              <textarea
+                name="user_message"
+                id="message"
+                class="contact__input"
+                required
+                placeholder="Message"
+              ></textarea>
+            </div>
+
+            <p class="contact__message" id="contact-message"></p>
+
+            <button type="submit" class="contact__button btn">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+      <!---------------------------about-college---------------------- -->
+
+      <!-- <section class="about-club" id="about-club">
+			<div class="about-club-bg-container">
+				<img src="images/about-info.jpg" alt="">
+			</div>
+			<div class="about-club-left-section">
+				<div class="top-row">
+					<img src="images/logo.png">
+					<h1>About Technical Club</h1>
+				</div>
+				<p>Our technical club stands as a dynamic hub of innovation and collaboration, bringing together passionate individuals with a shared enthusiasm for cutting-edge technologies. Fueled by a collective drive to explore the realms of science, engineering, and computer science, our club serves as a platform where members can exchange ideas, engage in hands-on projects, and stay abreast of the latest developments in the tech world. From coding workshops and hardware hackathons to insightful tech talks and collaborative problem-solving sessions, our club provides a multifaceted environment that nurtures both individual growth and collective learning. We pride ourselves on fostering a supportive community that transcends traditional boundaries, welcoming members with diverse backgrounds and skill sets. As we navigate the ever-evolving landscape of technology, our club remains committed to empowering its members, inspiring innovation, and making a lasting impact in the world of tech enthusiasts.</p>
+			</div>
+
+			<div class="about-club-right-section">
+				<div class="top-row"
+					<img src="images/NITUK_logo.png">
+					<h1>About NIT Uttarakhand</h1>
+				</div>
+				<p>Nestled amidst the scenic beauty of Uttarakhand, our college, the National Institute of Technology Uttarakhand (NIT Uttarakhand), stands as a beacon of academic excellence and innovation. With a commitment to providing quality education in engineering and technology, NIT Uttarakhand is dedicated to nurturing the intellectual and personal growth of its students. The campus serves as a vibrant melting pot of diverse talents and ideas, fostering a dynamic learning environment. Faculty members, renowned for their expertise, guide students through a comprehensive curriculum that blends theoretical knowledge with practical applications. Beyond academics, the college encourages students to engage in extracurricular activities, promoting a holistic development approach. With state-of-the-art facilities and a focus on research, NIT Uttarakhand is not just an educational institution but a community where aspiring minds come together to explore, innovate, and shape their futures.</p>
+			</div>
+		</section> -->
+    </main>
+
+    <!-- -------------------footer-------------- -->
+
+    <footer class="footer" id="footer">
+      <div class="footer-left-section">
+        <div class="left-section-content">
+          <img src="images/logo1.png" />
+
+          <div class="title-tagline">
+            <h3>CLIFFESTO</h3>
+            <p>Unleash the Excitement!</p>
+          </div>
+        </div>
+
+        <div class="left-section-img"></div>
+      </div>
+
+      <div class="footer-middle-section">
+        <div class="middle-section-img"></div>
+        <div class="middle-section-content">
+          <h3>Become a Sponsor</h3>
+
+          <button
+            class="btn"
+            onclick="window.location.href = 'sponsor/sponsor.html'"
+          >
+            HERE
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-right-section">
+        <h4>FOR QUERIES</h4>
+        <h3>cliffesto@nituk.ac.in</h3>
+        <div class="social-media-icons">
+          <!-- <button
+            class="btn"
+            onclick="window.location.href='https://www.facebook.com/p/Technical-Club-NIT-Uttarakhand-100063961633327/?paipv=0&eav=AfZJJ6VmeJaaYhbYXdO22lXoHynmmCL6t7KHxjCFySi3p7y79N8nUheh9Fl8H9pls20&_rdr'"
+          >
+            <i class="bx bxl-facebook"></i>
+          </button> -->
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=='"
+          >
+            <i class="bx bxl-instagram"></i>
+          </button>
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.linkedin.com/in/cliffestonituk'"
+          >
+            <i class="bx bxl-linkedin"></i>
+          </button>
+
+          <a href="#	" class="reset">
+            <i class="bx bx-right-arrow-alt"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!--=============== SCROLLREVEAL ===============-->
+  <script src="scrollreveal.min.js"></script>
+
+  <!--=============== GSAP JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+    integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== SCROLL TRIGGER JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+    integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== Baffle JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+
+  <!--=============== SCMOOTH SCROLL JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.1/dist/smooth-scrollbar.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="script.js">
+    document.addEventListener('DOMContentLoaded', function () {
+    	// Initialize Smooth Scrollbar on the body element
+    	const bodyScrollbar = Scrollbar.init(document.body);
+
+    	// Enable smooth scrolling
+    	bodyScrollbar.setPosition(0, 0, 0);
+    });
+  </script>
+  <!--=============== EMAIL JS ===============-->
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+  ></script>
+</html>

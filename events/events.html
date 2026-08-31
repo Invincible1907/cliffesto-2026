@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ALL LINKS  -->
+    <link rel="icon" href="images/favicon.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cliffesto</title>
+    <style type="text/css">
+      body,
+      a,
+      button,
+      div,
+      * {
+        cursor: url("data:image/x-icon;base64,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"),
+          auto;
+      }
+    </style>
+  </head>
+
+  <body class="dark">
+    <!-- HEADER  -->
+
+    <header class="header">
+      <div class="logo-container">
+        <img src="images/logo.png" />
+      </div>
+
+      <nav class="navbar-items">
+        <a href="../index.html">HOME</a>
+        <a href="">EVENTS</a>
+        <a href="../register/register.html">REGISTER</a>
+      </nav>
+
+      <button class="bx bx-menu menu-icon" onclick="toggleMenu()"></button>
+    </header>
+
+    <div class="menu">
+      <div class="menu-content">
+        <div class="menu-head">CLIFFESTO</div>
+        <div class="menu-list">
+          <div class="menu-home">
+            <a href="../index.html" onclick="toggleMenu()">HOME</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../index.html#about" onclick="toggleMenu()">ABOUT</a>
+          </div>
+
+          <div class="menu-home active">
+            <a href="#events" onclick="toggleMenu()">EVENTS</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../index.html#contact" onclick="toggleMenu()">CONTACT</a>
+          </div>
+
+          <div class="menu-home">
+            <a href="../register/register.html" onclick="toggleMenu()"
+              >REGISTER</a
+            >
+          </div>
+
+          <div class="menu-home">
+            <a href="../sponsor/sponsor.html" onclick="toggleMenu()">SPONSOR</a>
+          </div>
+        </div>
+
+        <div class="menu-socials">
+          <!-- <button
+            class="btn"
+            onclick="window.location.href='https://www.facebook.com/p/Technical-Club-NIT-Uttarakhand-100063961633327/?paipv=0&eav=AfZJJ6VmeJaaYhbYXdO22lXoHynmmCL6t7KHxjCFySi3p7y79N8nUheh9Fl8H9pls20&_rdr'"
+          >
+            <i class="bx bxl-facebook"></i>
+          </button> -->
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=='"
+          >
+            <i class="bx bxl-instagram"></i>
+          </button>
+
+          <button
+            class="btn"
+            onclick="window.location.href='https://www.linkedin.com/in/cliffestonituk'"
+          >
+            <i class="bx bxl-linkedin"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu-sidebar">
+        <button class="close-button" onclick="toggleMenu()">X</button>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+      <section class="slider">
+        <div class="list">
+          <div class="item active">
+            <div class="image" style="--url: url('images/1.jpg')"></div>
+            <div class="content">
+              <h2>Cultural Events</h2>
+              <p>
+                Our fest's cultural events feature dance, music, drama, fashion
+                shows, skits, poetry, debates, storytelling, art, comedy, and
+                traditional performances.
+              </p>
+              <p>
+                <button
+                  class="btn"
+                  onclick="window.location.href='../events-cultural/events.html'"
+                >
+                  Explore Now
+                  <svg
+                    class="w-6 h-6 text-gray-800 dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4"
+                    />
+                  </svg>
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="image" style="--url: url('images/2.jpg')"></div>
+            <div class="content">
+              <h2>Technical Events</h2>
+              <p>
+                Our fest's technical events include coding, robotics,
+                hackathons, AI challenges, quizzes, tech debates, workshops,
+                circuit design, gaming, and innovation expos.
+              </p>
+              <p>
+                <button
+                  class="btn"
+                  onclick="window.location.href='../events-technical/events.html'"
+                >
+                  Explore Now
+                  <svg
+                    class="w-6 h-6 text-gray-800 dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4"
+                    />
+                  </svg>
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="image" style="--url: url('images/3.jpg')"></div>
+            <div class="content">
+              <h2>Literary Events</h2>
+              <p>
+                Our fest's literary events include debate, quiz, poetry, storytelling, essay writing, elocution, creative writing, and book discussions.
+              </p>
+              <p>
+                <button
+                  class="btn"
+                  onclick="window.location.href='../events-literary/events.html'"
+                >
+                  Explore Now
+                  <svg
+                    class="w-6 h-6 text-gray-800 dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 12H5m14 0-4 4m4-4-4-4"
+                    />
+                  </svg>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="arrows">
+          <button id="prev">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h14M5 12l4-4m-4 4 4 4"
+              />
+            </svg>
+          </button>
+          <button id="next">
+            <svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 12H5m14 0-4 4m4-4-4-4"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+
+  <!--=============== GSAP JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+    integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== SCROLL TRIGGER JS ===============-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+    integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!--=============== Baffle JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+
+  <!--=============== SCMOOTH SCROLL JS ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.1/dist/smooth-scrollbar.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="script.js">
+    document.addEventListener('DOMContentLoaded', function () {
+       // Initialize Smooth Scrollbar on the body element
+       const bodyScrollbar = Scrollbar.init(document.body);
+
+       // Enable smooth scrolling
+       bodyScrollbar.setPosition(0, 0, 0);
+     });
+  </script>
+</html>
