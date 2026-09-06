@@ -293,6 +293,8 @@
 			</form> -->
 
           <form action="" class="contact__form" id="contact-form">
+            <input type="hidden" name="to_email" value="cliffesto@nituk.ac.in" />
+
             <div class="input-field">
               <input
                 type="text"
@@ -456,19 +458,12 @@
   <!--=============== SCMOOTH SCROLL JS ===============-->
   <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.1/dist/smooth-scrollbar.js"></script>
 
-  <!--=============== MAIN JS ===============-->
-  <script src="script.js">
-    document.addEventListener('DOMContentLoaded', function () {
-    	// Initialize Smooth Scrollbar on the body element
-    	const bodyScrollbar = Scrollbar.init(document.body);
-
-    	// Enable smooth scrolling
-    	bodyScrollbar.setPosition(0, 0, 0);
-    });
-  </script>
   <!--=============== EMAIL JS ===============-->
   <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
   ></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="script.js"></script>
 </html>

@@ -245,36 +245,92 @@ document.addEventListener("DOMContentLoaded", function () {
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById("contact-form"),
   contactMessage = document.getElementById("contact-message");
+const EMAILJS_PUBLIC_KEY = "smHhUVnw6AJ9zVvt5";
+const EMAILJS_SERVICE_ID = "service_u64zf7x";
+const EMAILJS_TEMPLATE_ID = "template_zwpymj1";
+
+if (contactForm && contactMessage && typeof emailjs !== "undefined") {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+const fallbackToMailClient = () => {
+  if (!contactForm) return false;
+
+  const name = contactForm.querySelector('#name')?.value?.trim() || "";
+  const email = contactForm.querySelector('#email')?.value?.trim() || "";
+  const subject = contactForm.querySelector('#subject')?.value?.trim() || "Cliffesto Query";
+  const message = contactForm.querySelector('#message')?.value?.trim() || "";
+
+  const body = [
+    message,
+    "",
+    "-".repeat(30),
+    `Name: ${name}`,
+    `Email: ${email}`,
+  ].join("\n");
+
+  const mailtoLink = `mailto:cliffesto@nituk.ac.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+  contactForm.reset();
+  return true;
+};
 
 const sendEmail = (e) => {
   e.preventDefault();
 
-  // serviceID - templateID - #form - publicKey
+  if (!contactForm || !contactMessage) {
+    return;
+  }
+
+  const canUseEmailJs =
+    typeof emailjs !== "undefined" &&
+    EMAILJS_PUBLIC_KEY &&
+    EMAILJS_SERVICE_ID &&
+    EMAILJS_TEMPLATE_ID;
+
+  if (!canUseEmailJs) {
+    const fallbackWorked = fallbackToMailClient();
+    contactMessage.textContent = fallbackWorked
+      ? "Email service is unavailable, so your mail app has been opened to send the message."
+      : "Email service is unavailable. Please email cliffesto@nituk.ac.in directly.";
+    return;
+  }
+
+  const payload = {
+    user_name: contactForm.querySelector('#name')?.value?.trim() || "",
+    user_email: contactForm.querySelector('#email')?.value?.trim() || "",
+    user_subject: contactForm.querySelector('#subject')?.value?.trim() || "",
+    user_message: contactForm.querySelector('#message')?.value?.trim() || "",
+    name: contactForm.querySelector('#name')?.value?.trim() || "",
+    email: contactForm.querySelector('#email')?.value?.trim() || "",
+    subject: contactForm.querySelector('#subject')?.value?.trim() || "",
+    message: contactForm.querySelector('#message')?.value?.trim() || "",
+    to_email: "cliffesto@nituk.ac.in"
+  };
+
+  contactMessage.textContent = "Sending...";
+
   emailjs
-    .sendForm(
-      "service_68320vw",
-      "template_45prikq",
-      "#contact-form",
-      "JI25sjN6CXmCzq0KC"
-    )
+    .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload)
     .then(
       () => {
-        // Show sent message
         contactMessage.textContent = "Message sent successfully ✅";
 
-        // Remove message after five seconds
         setTimeout(() => {
           contactMessage.textContent = "";
         }, 5000);
 
-        // Clear input fields
         contactForm.reset();
       },
-      () => {
-        //show error message
-        contactMessage.textContent = "Message not sent (service error) ❌";
+      (error) => {
+        console.error("EmailJS failed to send the contact form:", error);
+        contactMessage.textContent =
+          "Message not sent. Please try again later or email cliffesto@nituk.ac.in directly. ❌";
       }
     );
 };
 
-contactForm.addEventListener("submit", sendEmail);
+if (contactForm) {
+  contactForm.addEventListener("submit", sendEmail);
+}
