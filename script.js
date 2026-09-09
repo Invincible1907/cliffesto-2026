@@ -285,7 +285,7 @@ const sendEmail = (e) => {
       (error) => {
         console.error("EmailJS failed to send the contact form:", error);
         contactMessage.textContent =
-          "Message not sent. Please try again later or email cliffesto@nituk.ac.in directly. ❌";
+          "Message not sent. Please check your details and try again, or email cliffesto@nituk.ac.in directly. ❌";
       }
     );
 };
