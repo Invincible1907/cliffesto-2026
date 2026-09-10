@@ -1299,7 +1299,7 @@ img {
 }
 
 .menu {
-  width: min(100%, 42rem);
+  width: min(100%, 30rem);
   padding-bottom: env(safe-area-inset-bottom);
 }
 

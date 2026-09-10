@@ -13,6 +13,16 @@ function toggleMenu() {
   });
 }
 
+document.addEventListener("click", function (event) {
+  var menu = document.querySelector(".menu");
+  var menuIcon = document.querySelector(".menu-icon");
+  var menuIsOpen = menu && menu.style.right === "0%";
+
+  if (menuIsOpen && !menu.contains(event.target) && !menuIcon.contains(event.target)) {
+    menu.style.right = "-100%";
+  }
+});
+
 // main JS
 
 // landing animations
