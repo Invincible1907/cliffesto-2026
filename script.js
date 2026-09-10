@@ -53,7 +53,122 @@ function animateElements() {
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(animateElements);
+  initializeStarfield();
 });
+
+function initializeStarfield() {
+  const canvases = document.querySelectorAll(
+    ".landing-starfield, .section-starfield"
+  );
+  if (!canvases.length) return;
+
+  canvases.forEach(function (canvas) {
+    initializeStarfieldCanvas(canvas);
+  });
+}
+
+function initializeStarfieldCanvas(canvas) {
+  const section = canvas.parentElement;
+  if (!section) return;
+
+  const context = canvas.getContext("2d");
+  const pointer = { x: -1000, y: -1000 };
+  let stars = [];
+  let animationFrame;
+
+  function resizeCanvas() {
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    canvas.width = width * pixelRatio;
+    canvas.height = height * pixelRatio;
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const starCount = Math.min(1800, Math.max(1400, Math.floor((width * height) / 1400)));
+    stars = Array.from({ length: starCount }, function () {
+      const originX = Math.random() * width;
+      const originY = Math.random() * height;
+
+      return {
+        x: originX,
+        y: originY,
+        originX,
+        originY,
+        radius: Math.random() * 1.2 + 0.25,
+        alpha: Math.random() * 0.65 + 0.3,
+        twinkle: Math.random() * 0.04 + 0.01,
+        phase: Math.random() * Math.PI * 2,
+        velocityX: 0,
+        velocityY: 0,
+      };
+    });
+  }
+
+  function updatePointer(event) {
+    const bounds = canvas.getBoundingClientRect();
+    pointer.x = event.clientX - bounds.left;
+    pointer.y = event.clientY - bounds.top;
+  }
+
+  function resetPointer() {
+    pointer.x = -1000;
+    pointer.y = -1000;
+  }
+
+  function renderStars(timestamp) {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    context.clearRect(0, 0, width, height);
+
+    stars.forEach(function (star) {
+      const distanceX = star.x - pointer.x;
+      const distanceY = star.y - pointer.y;
+      const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+      const repelRadius = 160;
+
+      if (distance < repelRadius && distance > 0) {
+        const force = (repelRadius - distance) / repelRadius;
+        star.velocityX += (distanceX / distance) * force * 1.15;
+        star.velocityY += (distanceY / distance) * force * 1.15;
+      }
+
+      star.velocityX += (star.originX - star.x) * 0.012;
+      star.velocityY += (star.originY - star.y) * 0.012;
+
+      star.velocityX *= 0.9;
+      star.velocityY *= 0.9;
+      star.x += star.velocityX;
+      star.y += star.velocityY;
+
+      if (star.x < -4) star.x = width + 4;
+      if (star.x > width + 4) star.x = -4;
+      if (star.y < -4) star.y = height + 4;
+      if (star.y > height + 4) star.y = -4;
+
+      const pulse = Math.sin(timestamp * star.twinkle + star.phase) * 0.18;
+      const alpha = Math.max(0.08, star.alpha + pulse);
+      context.beginPath();
+      context.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+      context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      context.fill();
+    });
+
+    animationFrame = window.requestAnimationFrame(renderStars);
+  }
+
+  resizeCanvas();
+  section.addEventListener("mousemove", updatePointer, { passive: true });
+  section.addEventListener("mouseleave", resetPointer, { passive: true });
+  window.addEventListener("resize", resizeCanvas, { passive: true });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    renderStars(0);
+    window.cancelAnimationFrame(animationFrame);
+    return;
+  }
+
+  animationFrame = window.requestAnimationFrame(renderStars);
+}
 
 document.addEventListener("mousemove", parallax);
 
