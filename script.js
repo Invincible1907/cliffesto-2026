@@ -88,6 +88,7 @@ function initializeStarfieldCanvas(canvas) {
   let stars = [];
   let animationFrame;
   let lastFrame = 0;
+  let isVisible = false;
 
   function resizeCanvas() {
     const pixelRatio = isTouchDevice ? 1 : Math.min(window.devicePixelRatio || 1, 2);
@@ -98,7 +99,7 @@ function initializeStarfieldCanvas(canvas) {
     context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
     const starCount = isTouchDevice
-      ? Math.min(420, Math.max(260, Math.floor((width * height) / 5000)))
+      ? Math.min(320, Math.max(180, Math.floor((width * height) / 6500)))
       : Math.min(1800, Math.max(1400, Math.floor((width * height) / 1400)));
     stars = Array.from({ length: starCount }, function () {
       const originX = Math.random() * width;
@@ -162,6 +163,11 @@ function initializeStarfieldCanvas(canvas) {
   }
 
   function renderStars(timestamp) {
+    if (!isVisible) {
+      animationFrame = window.requestAnimationFrame(renderStars);
+      return;
+    }
+
     if (isTouchDevice && timestamp - lastFrame < 33) {
       animationFrame = window.requestAnimationFrame(renderStars);
       return;
@@ -234,6 +240,14 @@ function initializeStarfieldCanvas(canvas) {
   section.addEventListener("touchmove", moveSwipe, { passive: true });
   section.addEventListener("touchend", endSwipe, { passive: true });
   window.addEventListener("resize", resizeCanvas, { passive: true });
+
+  const visibilityObserver = new IntersectionObserver(
+    function (entries) {
+      isVisible = entries[0].isIntersecting;
+    },
+    { threshold: 0.01 }
+  );
+  visibilityObserver.observe(section);
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     lastFrame = -33;
