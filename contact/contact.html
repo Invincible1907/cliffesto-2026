@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/favicon-square.png" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contact Us | Cliffesto</title>
+    <style>
+      body,
+      a,
+      button,
+      div,
+      * {
+        cursor: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/web-cursor-standard.png?v=4") 2 2, auto !important;
+      }
+    </style>
+  </head>
+
+  <body class="dark">
+    <header class="header">
+      <div class="logo-container">
+        <a href="../index.html" aria-label="Go to Cliffesto homepage">
+          <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/logo1.png" />
+        </a>
+      </div>
+
+      <nav class="navbar-items">
+        <a href="../index.html">HOME</a>
+        <a href="../events/events.html">EVENTS</a>
+        <a href="../register/register.html">REGISTER</a>
+        <a href="#">CONTACT</a>
+      </nav>
+
+      <button class="bx bx-menu menu-icon" onclick="toggleMenu()"></button>
+    </header>
+
+    <div class="menu">
+      <div class="menu-content">
+        <div class="menu-head">
+          <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/logo1.png" alt="Cliffesto" />
+        </div>
+        <div class="menu-list">
+          <div class="menu-home"><a href="../index.html" onclick="toggleMenu()">HOME</a></div>
+          <div class="menu-home"><a href="../index.html#about" onclick="toggleMenu()">ABOUT</a></div>
+          <div class="menu-home"><a href="../events/events.html" onclick="toggleMenu()">EVENTS</a></div>
+          <div class="menu-home active"><a href="#" onclick="toggleMenu()">CONTACT</a></div>
+          <div class="menu-home"><a href="../register/register.html" onclick="toggleMenu()">REGISTER</a></div>
+          <div class="menu-home"><a href="../sponsor/sponsor.html" onclick="toggleMenu()">SPONSOR</a></div>
+        </div>
+      </div>
+      <div class="menu-sidebar">
+        <button class="close-button" onclick="toggleMenu()">X</button>
+      </div>
+    </div>
+
+    <main>
+      <section class="contact-page">
+        <canvas class="section-starfield" aria-hidden="true"></canvas>
+
+        <div class="bg-image-container">
+          <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/bg-4.png" />
+        </div>
+
+        <div class="contact-page-inner">
+          <div class="contact-left-section">
+            <h3>CONTACT US</h3>
+            <p>
+              Whether you have questions about event details, registration, or are a company eager to collaborate,
+              feel free to connect with us. Your enthusiasm and participation are what make Cliffesto 2026 a truly
+              unforgettable celebration of innovation and culture.
+            </p>
+          </div>
+
+          <div class="contact-right-section">
+            <form action="" class="contact__form" id="contact-form">
+              <input type="hidden" name="to_email" value="cliffesto@nituk.ac.in" />
+
+              <div class="input-field">
+                <input type="text" name="user_name" class="contact__input" id="name" required placeholder="Full Name" />
+              </div>
+
+              <div class="input-field">
+                <input type="email" name="user_email" class="contact__input" id="email" required placeholder="Email Address" />
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="user_subject" class="contact__input" id="subject" required placeholder="Subject" />
+              </div>
+
+              <div class="textarea-field">
+                <textarea name="user_message" id="message" class="contact__input" required placeholder="Message"></textarea>
+              </div>
+
+              <p class="contact__message" id="contact-message"></p>
+
+              <button type="submit" class="contact__button btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
