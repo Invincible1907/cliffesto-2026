@@ -880,7 +880,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url("images/bg-1.png");
+  background-image: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/register/images/bg-1.png");
   background-position: center;
   background-attachment: fixed;
   gap: 20px;
