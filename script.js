@@ -396,6 +396,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get all anchor tags in the menu
   var menuItems = document.querySelectorAll(".menu-home a");
 
+  // Inner pages use a fixed active menu item instead of section tracking.
+  if (sections.length !== menuItems.length) return;
+
   // Function to check which section is in the viewport
   function updateActiveSection() {
     sections.forEach(function (section, index) {
