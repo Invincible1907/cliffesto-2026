@@ -86,4 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", sendEmail);
   }
 
+  const menu = document.querySelector(".menu");
+  const toggleMenu = () => {
+    if (!menu) return;
+    menu.style.right = menu.style.right === "-100%" || menu.style.right === "" ? "0%" : "-100%";
+  };
+
+  const menuButton = document.querySelector(".menu-icon");
+  const closeButton = document.querySelector(".close-button");
+  if (menuButton) menuButton.addEventListener("click", toggleMenu);
+  if (closeButton) closeButton.addEventListener("click", toggleMenu);
 });
