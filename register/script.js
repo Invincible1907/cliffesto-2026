@@ -32,11 +32,6 @@ function animateElements() {
     { y: "0%", opacity: 1, duration: 1 }
   );
 
-  baffle(".header nav a").reveal(1000).set({
-    characters: "▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░",
-    speed: 150,
-  });
-
   elemAnimation();
 }
 

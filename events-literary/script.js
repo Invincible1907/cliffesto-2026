@@ -23,13 +23,6 @@ function animateElements() {
   // Animation for the header
   gsap.fromTo('.header', { y: '-100%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1, ease: 'power2.out' });
 
-  baffle('.header nav a')
-    .reveal(1000)
-    .set({
-        characters: '▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░',
-        speed: 150
-    });
-
   gsap.from('.item-container', {
     y: '100%',
     opacity: 0,

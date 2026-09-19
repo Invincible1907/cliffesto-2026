@@ -111,38 +111,6 @@
         </div>
       </section>
 
-      <!-- ------------about us------------ -->
-
-      <section class="about" id="about">
-        <div class="about-container">
-          <canvas class="section-starfield" aria-hidden="true"></canvas>
-
-          <div class="about-left-section">
-            <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" />
-          </div>
-
-          <div class="about-right-section">
-            <h3>ABOUT US</h3>
-
-            <p>
-              Welcome to Cliffesto 2026, where innovation meets celebration!
-              Step into the vibrant world of NIT's annual techno-cultural fest,
-              a one-of-a-kind extravaganza that bridges the realms of
-              technology, creativity, and culture. Cliffesto is more than just
-              an event—it's a symphony of ideas, talent, and passion, designed
-              to ignite the spark of imagination and innovation in every
-              participant. With electrifying competitions, enriching workshops,
-              mesmerizing cultural performances, and inspiring sessions by
-              thought leaders, Cliffesto is the ultimate confluence of
-              technology and art. Join us in this grand celebration, where the
-              boundaries between tech and culture dissolve, and the future of
-              creativity comes to life. Celebrate the spirit of innovation and
-              culture at Cliffesto 2026!
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- -------------------events--------------- -->
 
       <section class="events" id="events">
@@ -172,9 +140,9 @@
 
             <button
               class="btn"
-              onclick="window.location.href='events/events.html'"
+              onclick="window.location.href='past-events.html'"
             >
-              EXPLORE
+              EVENT GALLERY
             </button>
           </div>
 
@@ -213,6 +181,38 @@
                 </p>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------about us------------ -->
+
+      <section class="about" id="about">
+        <div class="about-container">
+          <canvas class="section-starfield" aria-hidden="true"></canvas>
+
+          <div class="about-left-section">
+            <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" />
+          </div>
+
+          <div class="about-right-section">
+            <h3>ABOUT US</h3>
+
+            <p>
+              Welcome to Cliffesto 2026, where innovation meets celebration!
+              Step into the vibrant world of NIT's annual techno-cultural fest,
+              a one-of-a-kind extravaganza that bridges the realms of
+              technology, creativity, and culture. Cliffesto is more than just
+              an event—it's a symphony of ideas, talent, and passion, designed
+              to ignite the spark of imagination and innovation in every
+              participant. With electrifying competitions, enriching workshops,
+              mesmerizing cultural performances, and inspiring sessions by
+              thought leaders, Cliffesto is the ultimate confluence of
+              technology and art. Join us in this grand celebration, where the
+              boundaries between tech and culture dissolve, and the future of
+              creativity comes to life. Celebrate the spirit of innovation and
+              culture at Cliffesto 2026!
+            </p>
           </div>
         </div>
       </section>
@@ -300,7 +300,7 @@
             class="btn"
             onclick="window.location.href = 'sponsor/sponsor.html'"
           >
-            HERE
+            <span class="btn-label">HERE</span>
           </button>
         </div>
       </div>
@@ -316,19 +316,25 @@
             <i class="bx bxl-facebook"></i>
           </button> -->
 
-          <button
+          <a
             class="btn"
-            onclick="window.location.href='https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=='"
+            href="https://www.instagram.com/cliffesto_nituk?igsh=MWk3OGtqejduMWJ1eQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Cliffesto on Instagram"
           >
             <i class="bx bxl-instagram"></i>
-          </button>
+          </a>
 
-          <button
+          <a
             class="btn"
-            onclick="window.location.href='https://www.linkedin.com/in/cliffestonituk'"
+            href="https://www.linkedin.com/in/cliffestonituk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Cliffesto on LinkedIn"
           >
             <i class="bx bxl-linkedin"></i>
-          </button>
+          </a>
 
           <a href="#	" class="reset">
             <i class="bx bx-right-arrow-alt"></i>
@@ -336,6 +342,7 @@
         </div>
       </div>
     </footer>
+    <script src="scripts/navbar.js"></script>
   </body>
 
   <!--=============== SCROLLREVEAL ===============-->
