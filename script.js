@@ -45,10 +45,6 @@ function animateElements() {
     speed: 150,
   });
 
-  baffle(".header nav a").reveal(1000).set({
-    characters: "▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░",
-    speed: 150,
-  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -276,7 +272,6 @@ function parallax(e) {
 // Scroll-triggered animations for the home section
 gsap.to(".title", {
   y: "-100px",
-  opacity: "0",
   scrollTrigger: {
     trigger: ".landing-page",
     start: "bottom bottom",
@@ -287,7 +282,6 @@ gsap.to(".title", {
 });
 gsap.to(".landing-page-img", {
   y: "100px",
-  opacity: "0",
   scrollTrigger: {
     trigger: ".landing-page",
     start: "bottom bottom",

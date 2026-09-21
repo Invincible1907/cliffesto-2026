@@ -932,6 +932,7 @@ main {
 }
 
 .accomodation {
+  display: none;
   margin-top: 80px;
 }
 

@@ -63,49 +63,23 @@ section {
 
 .header {
   position: fixed;
-  display: flex;
-  height: 60px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4rem;
-  backdrop-filter: blur(10px);
-  z-index: 999;
   top: 0;
-}
-
-.header .logo-container {
+  z-index: 999;
   display: flex;
+  width: 100%;
   height: 60px;
-  max-width: 100px;
-  justify-content: center;
   align-items: center;
-  width: auto;
-}
-
-.header img {
-  max-width: 100px;
-  width: auto;
-}
-
-.header .navbar-items {
-  display: flex;
   justify-content: space-between;
-  font-size: 1.6rem;
-  width: 50rem;
-  margin: 0 5rem;
-}
-
-.header .navbar-items a {
-  color: white;
-  letter-spacing: 0.3rem;
-  font-family: anurati, poppins;
+  padding: 0 max(1.25rem, env(safe-area-inset-right)) 0 max(1.25rem, env(safe-area-inset-left));
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .header .logo-container {
+  display: flex;
   height: 60px;
   max-width: 28rem;
+  align-items: center;
   gap: 0.2rem;
   flex-shrink: 0;
 }
@@ -119,40 +93,61 @@ section {
 .header .logo-container > a > img {
   width: 10rem;
   height: 4rem;
-  max-width: none;
   object-fit: contain;
 }
 
 .header .collab-separator {
   display: inline-flex;
-  margin-left: -0.25rem;
   width: 2.2rem;
   height: 3.8rem;
   align-items: center;
   justify-content: center;
-  color: white;
   font-family: Anurati, "Poppins", sans-serif;
   font-size: 2.4rem;
-  line-height: 1;
-  transform: translateY(0.1rem);
 }
 
 .header .collab-logo {
+  display: block;
   width: 10rem;
   height: 3.8rem;
-  max-width: none;
   object-fit: contain;
-  display: block;
+}
+
+.header .navbar-items {
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 5vw, 6rem);
+  margin: 0 clamp(1rem, 3vw, 4rem);
+  font-size: 1.6rem;
+}
+
+.header .navbar-items a,
+.quick-access-list a {
+  color: white;
+  font-family: Anurati, "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+  text-decoration: none;
+}
+
+.header .navbar-items a {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.header .navbar-items a:hover {
+  transform: scale(1.2);
 }
 
 .header .menu-icon {
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
   border: none;
   background: transparent;
   color: white;
   font-size: 2.5rem;
-}
-
-.header .menu-icon:hover {
   cursor: pointer;
 }
 
@@ -193,37 +188,40 @@ section {
 /* --------menu styling--------- */
 
 .menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  z-index: 1000;
+  display: block;
+  width: min(100%, 320px);
+  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: 1.5rem 0 0 1.5rem;
   background: rgba(22, 22, 22, 0.5);
   backdrop-filter: blur(10px);
-  position: fixed;
-  z-index: 999;
-  width: 55%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  right: -100%;
-  border-radius: 1.5rem 0 0 1.5rem;
   transition: right ease 0.3s;
-  display: flex;
 }
 
-.menu .menu-content {
-  width: 70%;
+.menu .menu-content,
+.quick-access-content {
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
-.menu .menu-content .menu-head {
-  border-bottom: 1px solid white;
-  height: 60px;
-  font-family: poppins;
+.menu .menu-content .menu-head,
+.quick-access-head {
+  position: relative;
   display: flex;
+  height: 60px;
   align-items: center;
-  padding-left: 4rem;
-  color: white;
+  justify-content: center;
+  padding: 0 56px 0 1.5rem;
+  border-bottom: 1px solid white;
 }
 
-.menu .menu-content .menu-head img {
+.menu .menu-content .menu-head img,
+.quick-access-head img {
   display: block;
   width: auto;
   max-width: 120px;
@@ -231,26 +229,54 @@ section {
   object-fit: contain;
 }
 
-.menu .menu-content .menu-list {
-  width: 100%;
+.menu .menu-content .menu-list,
+.quick-access-list {
   display: flex;
-  height: 90%;
+  width: 100%;
+  height: calc(100% - 60px);
   flex-direction: column;
   row-gap: 5vh;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding-right: 4rem;
+  padding: 2rem 1rem;
 }
 
-.menu .menu-content .menu-list .menu-home {
+.menu .menu-content .menu-list .menu-home,
+.quick-access-list .quick-access-home {
+  max-width: 100%;
   padding: 1rem;
+  text-align: center;
 }
 
-.menu .menu-content .menu-list a {
-  font-size: 3rem;
+.menu .menu-content .menu-list a,
+.quick-access-list a {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: clamp(1.8rem, 7vw, 3rem);
   color: white;
   letter-spacing: 0.5rem;
-  font-family: Anurati, poppins;
+  white-space: nowrap;
+  font-family: Anurati, "Poppins", sans-serif;
+}
+
+.menu .menu-sidebar,
+.quick-access-sidebar {
+  display: none;
+}
+
+.menu .close-button,
+.quick-access-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  max-width: 4.8rem;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
 }
 
 .menu .menu-socials {
@@ -297,7 +323,7 @@ section {
 
 /* ----active-class--- */
 
-.active {
+.quick-access .active {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
 }
@@ -540,8 +566,9 @@ section {
 }
 
 @media (max-width: 850px) {
-  .menu {
-    width: 100%;
+  .menu,
+  .quick-access {
+    width: min(100%, 30rem);
   }
 }
 
@@ -551,6 +578,11 @@ section {
   }
   .header .navbar-items {
     display: none;
+  }
+  .header .menu-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
   }
 }
 
@@ -680,6 +712,18 @@ main,
 }
 
 @media (max-width: 767px) {
+  body {
+    background-color: #05070d;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 74% 32%, rgba(126, 231, 255, 0.55) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 38% 76%, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 88% 86%, rgba(255, 255, 255, 0.65) 0 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.28) 0 0.7px, transparent 1px);
+    background-size: 113px 137px, 173px 191px, 149px 167px, 211px 229px, 67px 73px;
+    background-attachment: fixed;
+  }
+
   .slider .list .item .content {
     top: clamp(7rem, 15vh, 11rem);
     width: min(88vw, 38rem);
@@ -723,12 +767,14 @@ main,
 }
 
 /* Match the homepage quick-access width at every viewport size. */
-.menu {
+.menu,
+.quick-access {
   width: min(100%, 30rem);
 }
 
 @media (max-width: 400px) {
-  .menu {
+  .menu,
+  .quick-access {
     width: min(100%, 30rem);
   }
 }

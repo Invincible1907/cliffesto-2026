@@ -1,17 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ---toggle menu----
-
-function toggleMenu() {
-  var menu = document.querySelector(".menu");
-  menu.style.right =
-    menu.style.right === "-100%" || menu.style.right === "" ? "0%" : "-100%";
-
-  gsap.from(".menu-socials", {
-    x: "-100%",
-    duration: 1,
-  });
-}
+// Navigation is handled by the shared navbar script.
+// Keep the event page from overriding the global quick-access toggle.
 
 // landing animations
 function animateElements() {
@@ -21,11 +11,6 @@ function animateElements() {
     { y: "-100%", opacity: 0 },
     { y: "0%", opacity: 1, duration: 1, ease: "power2.out" }
   );
-
-  baffle(".header nav a").reveal(1000).set({
-    characters: "▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░",
-    speed: 150,
-  });
 
   gsap.fromTo(
     ".card",
@@ -46,27 +31,20 @@ $(".card").hover(function () {
 let items = document.querySelectorAll(".slider .list .item");
 let prevBtn = document.getElementById("prev");
 let nextBtn = document.getElementById("next");
-let lastPosition = items.length - 1;
-let firstPosition = 0;
 let active = 0;
 
 nextBtn.onclick = () => {
-  active = active + 1;
+  active = (active + 1) % items.length;
   setSlider();
 };
 prevBtn.onclick = () => {
-  active = active - 1;
+  active = (active - 1 + items.length) % items.length;
   setSlider();
 };
 const setSlider = () => {
   let oldActive = document.querySelector(".slider .list .item.active");
   if (oldActive) oldActive.classList.remove("active");
   items[active].classList.add("active");
-  //
-  nextBtn.classList.remove("d-none");
-  prevBtn.classList.remove("d-none");
-  if (active == lastPosition) nextBtn.classList.add("d-none");
-  if (active == firstPosition) prevBtn.classList.add("d-none");
 };
 setSlider();
 
