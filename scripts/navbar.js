@@ -8,14 +8,14 @@
   const links = [
     ["HOME", "index.html"],
     ["EVENTS", "events/events.html"],
-    ["REGISTER", "register/register.html"],
+    ["PASSES", "register/register.html"],
     ["CONTACT", "contact/contact.html"],
   ];
   const menuLinks = [
     ["HOME", "index.html"],
     ["EVENTS", "events/events.html"],
     ["CONTACT", "contact/contact.html"],
-    ["REGISTER", "register/register.html"],
+    ["PASSES", "register/register.html"],
     ["SPONSOR", "sponsor/sponsor.html"],
     ["EVENT GALLERY", "past-events.html"],
   ];
@@ -107,6 +107,25 @@
       if (menu.style.right === "0%" && !menu.contains(event.target) && !menuButton.contains(event.target)) {
         setMenu(false);
       }
+    });
+
+    document.addEventListener("click", function (event) {
+      const link = event.target.closest("a[href]");
+      if (!link || link.target === "_blank" || event.defaultPrevented) return;
+
+      const targetUrl = new URL(link.href, window.location.href);
+      if (targetUrl.pathname !== window.location.pathname || !targetUrl.hash) return;
+
+      const target = document.querySelector(targetUrl.hash);
+      if (!target) return;
+
+      event.preventDefault();
+      setMenu(false);
+      history.pushState(null, "", targetUrl.hash);
+      target.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
     });
 
     if (typeof window.baffle === "function") {
