@@ -597,6 +597,11 @@ section {
   scale: 1.1;
   transition: 0.5s all ease;
 }
+.event-right-section .event-item a:hover p {
+  color: #f1c40f;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: translateX(8px);
+}
 .event-right-section .event-item img {
   width: 100px;
   animation: rotate 10s linear infinite;

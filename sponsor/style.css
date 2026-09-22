@@ -487,6 +487,20 @@ select::placeholder {
   text-transform: uppercase;
 }
 
+.sponsor-highlight {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #f1c40f;
+  border-radius: 0.35rem;
+  color: #f1c40f;
+  text-shadow: 0 0 12px rgba(241, 196, 15, 0.55);
+}
+
+.multicity-partner {
+  color: #f1c40f;
+  font-weight: 700;
+}
+
 .past-sponsors img {
   display: block;
   width: min(100%, 100rem);

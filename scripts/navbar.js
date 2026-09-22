@@ -86,6 +86,36 @@
       document.body.appendChild(menu);
     }
 
+    const categoryPages = [
+      ["CULTURAL", "events-cultural/events.html"],
+      ["LITERARY", "events-literary/events.html"],
+      ["TECHNICAL", "events-technical/events.html"]
+    ];
+    const currentCategory = categoryPages.find(function (entry) {
+      return page.endsWith(entry[1]);
+    });
+    if (currentCategory) {
+      const switcher = document.createElement("nav");
+      switcher.className = "category-switcher";
+      switcher.setAttribute("aria-label", "Event categories");
+      switcher.innerHTML = "<span>EVENT CATEGORIES</span>";
+      categoryPages.forEach(function (entry) {
+        const link = createLink(entry[0], entry[1]);
+        if (entry[0] === currentCategory[0]) link.className = "active";
+        switcher.appendChild(link);
+      });
+      document.body.appendChild(switcher);
+    }
+
+    if (!page.endsWith("/index.html") && !page.endsWith("/") && !document.querySelector(".page-back")) {
+      const back = document.createElement("a");
+      back.className = "page-back";
+      back.href = url(currentCategory ? "events/events.html" : "index.html");
+      back.textContent = currentCategory ? "BACK TO EVENTS" : "BACK TO HOME";
+      back.setAttribute("aria-label", back.textContent);
+      document.body.appendChild(back);
+    }
+
     const menuButton = header.querySelector(".menu-icon");
     const closeButton = menu.querySelector(".quick-access-close");
 
