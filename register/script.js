@@ -32,7 +32,6 @@ function animateElements() {
     { y: "0%", opacity: 1, duration: 1 }
   );
 
-  elemAnimation();
 }
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -273,8 +273,14 @@ body.dark {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 10rem;
+  padding: 10rem 7rem 2rem 1rem;
   z-index: 10;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding-right: 1rem;
+  }
 }
 
 .item-container {
