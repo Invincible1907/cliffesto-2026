@@ -32,6 +32,24 @@ body {
   scrollbar-width: none;
 }
 
+body,
+body * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+body ::selection {
+  background: transparent;
+  color: inherit;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 .gallery-starfield {
   position: fixed;
   inset: 0;

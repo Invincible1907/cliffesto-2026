@@ -6,18 +6,18 @@
   const page = window.location.pathname;
 
   const links = [
-    ["HOME", "index.html"],
-    ["EVENTS", "events/events.html"],
-    ["PASSES", "register/register.html"],
-    ["CONTACT", "contact/contact.html"],
+    ["HOME", "home"],
+    ["EVENTS", "events/"],
+    ["PASSES", "passes/"],
+    ["CONTACT", "contact/"],
   ];
   const menuLinks = [
-    ["HOME", "index.html"],
-    ["EVENTS", "events/events.html"],
-    ["CONTACT", "contact/contact.html"],
-    ["PASSES", "register/register.html"],
-    ["SPONSOR", "sponsor/sponsor.html"],
-    ["EVENT GALLERY", "past-events.html"],
+    ["HOME", "home"],
+    ["EVENTS", "events/"],
+    ["CONTACT", "contact/"],
+    ["PASSES", "passes/"],
+    ["SPONSOR", "sponsor/"],
+    ["EVENT GALLERY", "gallery"],
   ];
 
   function url(path) {
@@ -44,7 +44,7 @@
     header.className = "header";
     header.innerHTML = `
       <div class="logo-container">
-        <a href="${url("index.html")}" aria-label="Go to Cliffesto homepage">
+        <a href="${url("home")}" aria-label="Go to Cliffesto homepage">
           <img src="${url("CDN_Images/images/logo1.png")}" alt="Cliffesto" />
         </a>
         <span class="collab-separator" aria-hidden="true">X</span>

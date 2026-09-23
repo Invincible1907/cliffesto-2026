@@ -37,4 +37,23 @@ function animateElements() {
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(animateElements);
+
+  var registrationNote = document.querySelector(".registration-note");
+
+  if (!registrationNote || !("IntersectionObserver" in window)) {
+    if (registrationNote) registrationNote.classList.add("is-visible");
+    return;
+  }
+
+  var noteObserver = new IntersectionObserver(
+    function (entries, observer) {
+      if (entries[0].isIntersecting) {
+        registrationNote.classList.add("is-visible");
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+
+  noteObserver.observe(registrationNote);
 });
