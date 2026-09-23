@@ -312,12 +312,16 @@ section {
   opacity: 0;
   transition: 300ms ease-in-out;
   position: absolute;
-  font-size: 28px;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 20px 8px 0;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 800;
-  letter-spacing: 4px;
+  letter-spacing: clamp(1px, 0.18vw, 2.5px);
+  line-height: 1.25;
   text-align: center;
   width: 100%;
-  padding-top: 20px;
+  overflow-wrap: anywhere;
   background: linear-gradient(45deg, #00ffaa, #00a2ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -916,11 +920,20 @@ section {
 
 .content {
   display: flex;
-  gap: 5rem;
+  flex-wrap: wrap;
+  gap: 3rem 2.5rem;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-items: start;
+  align-content: center;
+  height: auto;
+  min-height: calc(100vh - 6rem);
+  max-width: 110rem;
+  padding: 3rem 1.5rem;
   width: 100%;
+}
+
+.content > .container {
+  flex: 0 0 25rem;
 }
 
 .pass-page-content {
@@ -1111,8 +1124,9 @@ section {
 }
 
 main {
-  min-height: auto;
+  min-height: 100vh;
   width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1121,6 +1135,24 @@ main {
   background-position: center;
   background-attachment: fixed;
   gap: 0;
+  padding: 6rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.register-starfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+main > .content,
+main > .accomodation {
+  position: relative;
+  z-index: 1;
 }
 
 main:has(.pass-page-content) {
@@ -1224,11 +1256,17 @@ main:has(.pass-page-content) {
     width: 100%;
   }
   .content {
-    flex-direction: column;
-    padding-top: 150px;
+    min-height: auto;
+    padding-top: 2rem;
   }
   .accomodation {
     margin: 40px 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  .content {
+    gap: 2rem;
   }
 }
 
