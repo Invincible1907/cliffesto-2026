@@ -63,8 +63,8 @@ function initializeSponsorStarfield() {
     canvas.height = height * ratio;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     const starCount = isTouchDevice
-      ? Math.min(520, Math.max(300, Math.floor((width * height) / 4000)))
-      : Math.min(3200, Math.max(2400, Math.floor((width * height) / 850)));
+      ? Math.min(900, Math.max(540, Math.floor((width * height) / 2400)))
+      : Math.min(6000, Math.max(4200, Math.floor((width * height) / 500)));
     stars = Array.from({ length: starCount }, function () {
       const originX = Math.random() * width;
       const originY = Math.random() * height;

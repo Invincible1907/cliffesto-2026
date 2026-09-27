@@ -19,7 +19,7 @@
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const count = touchDevice ? Math.min(360, Math.max(220, Math.floor((width * height) / 5500))) : Math.min(1500, Math.max(700, Math.floor((width * height) / 1800)));
+    const count = touchDevice ? Math.min(700, Math.max(420, Math.floor((width * height) / 3000))) : Math.min(3000, Math.max(1200, Math.floor((width * height) / 1000)));
 
     stars = Array.from({ length: count }, function () {
       const x = Math.random() * width;

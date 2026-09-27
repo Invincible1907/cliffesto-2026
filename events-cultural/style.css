@@ -403,6 +403,7 @@ body.dark {
   font-size: 1.3em;
   font-weight: bold;
   letter-spacing: 2px;
+  z-index: 1;
   transition: background-color 0.4s, top 0.4s;
 }
 
@@ -412,7 +413,8 @@ body.dark {
 
 .action:hover {
   background-color: white;
-  color: black;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
   cursor: pointer;
 }
 .action::before {

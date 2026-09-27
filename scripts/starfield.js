@@ -15,7 +15,7 @@
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
     stars.length = 0;
-    const count = Math.min(900, Math.max(320, Math.floor((innerWidth * innerHeight) / 1500)));
+    const count = Math.min(1800, Math.max(700, Math.floor((innerWidth * innerHeight) / 800)));
     for (let index = 0; index < count; index += 1) {
       const originX = Math.random() * innerWidth;
       const originY = Math.random() * innerHeight;

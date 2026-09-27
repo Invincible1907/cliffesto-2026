@@ -637,7 +637,8 @@ section {
 }
 
 .btn:hover {
-  color: black;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
   /* cursor: pointer; */
 }
 
@@ -650,7 +651,7 @@ section {
   width: 0;
   background: white;
   transition: 0.3s ease;
-  z-index: 0;
+  z-index: -1;
 }
 
 .btn:hover::before {
