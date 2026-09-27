@@ -105,12 +105,12 @@
     <!-- MAIN CONTENT -->
 
     <main>
-      <canvas class="section-starfield" aria-hidden="true"></canvas>
+      <canvas class="register-starfield" aria-hidden="true"></canvas>
       <div class="content">
         <div class="container noselect">
           <div
             class="canvas"
-            onclick="window.open('https://unstop.com/o/leq8ZxS?lb=JgNtUPdB&utm_medium=Share&utm_source=conferences&utm_campaign=Cliffutt16954', '_blank', 'noopener,noreferrer')"
+            onclick="window.open(window.CLIFFESTO_CONFIG.passes.silver, '_blank', 'noopener,noreferrer')"
           >
             <div class="tracker tr-1"></div>
             <div class="tracker tr-2"></div>
@@ -154,7 +154,7 @@
         <div class="container noselect">
           <div
             class="canvas"
-            onclick="window.open('https://unstop.com/o/QnxiDsM?lb=JgNtUPdB&utm_medium=Share&utm_source=conferences&utm_campaign=Cliffutt16954', '_blank', 'noopener,noreferrer')"
+            onclick="window.open(window.CLIFFESTO_CONFIG.passes.gold, '_blank', 'noopener,noreferrer')"
           >
             <div class="tracker tr-1"></div>
             <div class="tracker tr-2"></div>
@@ -171,8 +171,52 @@
                 <div class="cyber-lines">
                   <span></span><span></span><span></span><span></span>
                 </div>
-                <p id="prompt">General Event Pass</p>
-                <div class="title">GENERAL<br />EVENT</div>
+                <p id="prompt">EDM night</p>
+                <div class="title">BATTLE OF<br />BANDS</div>
+                <div class="glowing-elements">
+                  <div class="glow-1"></div>
+                  <div class="glow-2"></div>
+                  <div class="glow-3"></div>
+                </div>
+                <div class="subtitle">
+                  <span>Rs.</span>
+                  <span class="highlight">249/ Person</span>
+                </div>
+                <div class="card-particles">
+                  <span></span><span></span><span></span> <span></span
+                  ><span></span><span></span>
+                </div>
+                <div class="corner-elements">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container noselect">
+          <div
+            class="canvas"
+            onclick="window.open(window.CLIFFESTO_CONFIG.passes.platinum, '_blank', 'noopener,noreferrer')"
+          >
+            <div class="tracker tr-1"></div>
+            <div class="tracker tr-2"></div>
+            <div class="tracker tr-3"></div>
+            <div class="tracker tr-4"></div>
+            <div class="tracker tr-5"></div>
+            <div class="tracker tr-6"></div>
+            <div class="tracker tr-7"></div>
+            <div class="tracker tr-8"></div>
+            <div class="tracker tr-9"></div>
+            <div id="card">
+              <div class="card-content">
+                <div class="card-glare"></div>
+                <div class="cyber-lines">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <p id="prompt">Registration Pass</p>
+                <div class="title">WIN'EM<br />ALL</div>
                 <div class="glowing-elements">
                   <div class="glow-1"></div>
                   <div class="glow-2"></div>
@@ -200,7 +244,7 @@
         <div class="container noselect">
           <div
             class="canvas"
-            onclick="window.open('https://unstop.com/o/uUpjT7H?lb=JgNtUPdB&utm_medium=Share&utm_source=conferences&utm_campaign=Cliffutt16954', '_blank', 'noopener,noreferrer')"
+            onclick="window.open(window.CLIFFESTO_CONFIG.passes.school, '_blank', 'noopener,noreferrer')"
           >
             <div class="tracker tr-1"></div>
             <div class="tracker tr-2"></div>
@@ -285,8 +329,15 @@
       <div class="accomodation">
         <p>For Accomodation please click <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwsKsfSfPoRNt22669kNc-bK3_9NBg4f-FD3XJg8R7WltYwA/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">HERE</a></p>
       </div>
+      <p class="pass-guidelines">
+        Still Confused!!!! Check out the
+        <a href="../Passes-Guidelines.pdf" target="_blank" rel="noopener noreferrer">Passes Guidelines</a>
+      </p>
     </main>
+    <script src="../scripts/site-config.js"></script>
+    <script src="pass-links.js"></script>
     <script src="../scripts/navbar.js"></script>
+    <script src="starfield.js"></script>
   </body>
 
   <!--=============== GSAP JS ===============-->
@@ -307,11 +358,6 @@
 
   <!--=============== Baffle JS ===============-->
   <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
-
-  <!--=============== STARFIELD JS ===============-->
-  <script src="../script.js?v=starfield-2"></script>
-
-  <!--=============== SCMOOTH SCROLL JS ===============-->
 
   <!--=============== MAIN JS ===============-->
   <script src="script.js"></script>

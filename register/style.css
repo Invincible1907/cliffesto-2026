@@ -22,6 +22,8 @@
 * {
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   box-sizing: border-box;
   text-decoration: none;
   border: none;
@@ -45,15 +47,18 @@ body ::selection {
 
 html {
   font-size: 62.5%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   overflow-x: hidden;
 }
 
+html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
 
 body {
-  background: var(--bg-color);
+  background: #020b18 url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/register/images/bg-1.png") center top / cover fixed no-repeat;
   color: white;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -254,7 +259,7 @@ section {
   color: white;
   border-bottom: 1px solid white;
   border-radius: 1rem;
-  transition: all ease 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu .menu-sidebar .close-button:hover {
@@ -277,8 +282,7 @@ section {
   width: 100%;
   max-width: 25rem;
   height: 37rem;
-  container-type: inline-size;
-  transition: 200ms;
+  transition: transform 200ms ease;
 }
 
 .container:active {
@@ -294,7 +298,7 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  transition: 700ms;
+  transition: transform 180ms ease, filter 180ms ease;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -329,13 +333,15 @@ section {
   opacity: 0;
   transition: 300ms ease-in-out;
   position: absolute;
-  font-size: clamp(1.9rem, 14cqw, 3.4rem);
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 20px 8px 0;
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 800;
-  letter-spacing: clamp(1px, 1.5cqw, 4px);
+  letter-spacing: clamp(1px, 0.18vw, 2.5px);
+  line-height: 1.25;
   text-align: center;
   width: 100%;
-  padding: 20px 0.5rem 0;
-  line-height: 1.15;
   overflow-wrap: anywhere;
   background: linear-gradient(45deg, #00ffaa, #00a2ff);
   -webkit-background-clip: text;
@@ -516,12 +522,12 @@ section {
 }
 
 .tracker:hover ~ #card {
-  transition: 300ms;
+  transition: filter 300ms ease;
   filter: brightness(1.1);
 }
 
 .container:hover #card::before {
-  transition: 200ms;
+  transition: opacity 200ms ease;
   content: "";
   opacity: 80%;
 }
@@ -925,7 +931,7 @@ section {
 }
 
 .corner-elements span {
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #card:hover .corner-elements span {
@@ -936,13 +942,206 @@ section {
 .content {
   display: flex;
   flex-wrap: wrap;
+  gap: 3rem 2.5rem;
   justify-content: center;
-  align-items: flex-start;
-  gap: 9rem;
-  min-height: 100vh;
+  align-items: start;
+  align-content: center;
   height: auto;
-  width: min(100%, 105rem);
-  padding: 9rem 2rem 4rem;
+  min-height: calc(100vh - 6rem);
+  max-width: 110rem;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+.content > .container {
+  flex: 0 0 25rem;
+}
+
+.pass-page-content {
+  display: flex;
+  max-width: 1240px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2.4rem 1.2rem;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 2rem 4rem;
+  font-family: Poppins, sans-serif;
+}
+
+.pass-page-content > section {
+  height: auto;
+}
+
+.pass-manual {
+  flex: 1 1 100%;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  text-align: center;
+}
+
+.pass-kicker {
+  color: #f1c40f;
+  font-size: 0.8rem;
+  letter-spacing: 0.22rem;
+}
+
+.pass-manual h1 {
+  margin: 0.4rem 0;
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  font-family: Anurati, Poppins, sans-serif;
+  letter-spacing: 0.12rem;
+  text-shadow: 0 0 18px rgba(185, 0, 255, 0.55);
+}
+
+.pass-manual > p:not(.pass-kicker) {
+  max-width: 760px;
+  margin: 0 auto 1rem;
+}
+
+.pass-rules {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid #b900ff;
+  background: rgba(4, 20, 42, 0.75);
+}
+
+.pass-steps {
+  display: grid;
+  max-width: 900px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  margin: 1.2rem auto 0;
+}
+
+.pass-steps span {
+  display: flex;
+  min-height: 3.8rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(157, 0, 198, 0.55);
+  border-radius: 0.45rem;
+  background: rgba(3, 18, 38, 0.7);
+  color: #d9e4ff;
+  font-size: 0.76rem;
+  text-align: left;
+}
+
+.pass-steps article {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.15rem 0.6rem;
+  min-height: 6.2rem;
+  align-content: center;
+  padding: 0.8rem;
+  border: 1px solid rgba(157, 0, 198, 0.55);
+  border-radius: 0.45rem;
+  background: rgba(3, 18, 38, 0.7);
+  color: #d9e4ff;
+  font-size: 0.74rem;
+}
+
+.pass-steps article > b {
+  grid-row: span 2;
+  align-self: start;
+  display: inline-grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #b900ff;
+  color: #fff;
+}
+
+.pass-steps article strong { color: #fff; font-size: 0.78rem; }
+.pass-steps article span { color: #aebfe0; font-size: 0.68rem; }
+
+.pass-steps b {
+  display: inline-grid;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #b900ff;
+  color: #fff;
+}
+
+.pass-grid {
+  display: grid;
+  flex: 1 1 100%;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  grid-auto-rows: max-content;
+  gap: 1rem;
+  align-self: flex-start;
+}
+
+.pass-option {
+  display: flex;
+  height: max-content;
+  align-self: start;
+  min-height: 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.35rem 1.15rem;
+  border: 1px solid rgba(112, 156, 255, 0.5);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(9, 35, 72, 0.96), rgba(8, 16, 38, 0.9));
+  color: #fff;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  font-family: Poppins, sans-serif;
+}
+
+.pass-option:hover {
+  border-color: #f1c40f;
+  color: #f1c40f;
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px rgba(157, 0, 198, 0.34);
+}
+
+.pass-name { min-height: 2.5rem; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.03rem; }
+.pass-price { color: #f1c40f; font-size: 2rem; line-height: 1; }
+.pass-label { color: #9fb8e7; font-size: 0.62rem; letter-spacing: 0.1rem; text-transform: uppercase; }
+.pass-includes { min-height: 3.2rem; color: #d9e4ff; font-size: 0.78rem; line-height: 1.45; }
+.pass-buy { margin-top: 0.25rem; padding-top: 0.7rem; border-top: 1px solid rgba(112, 156, 255, 0.3); color: #fff; font-size: 0.7rem; letter-spacing: 0.1rem; }
+
+.flagship-fees {
+  flex: 1 1 100%;
+  color: #d9e4ff;
+  font-family: Poppins, sans-serif;
+  text-align: center;
+}
+
+.flagship-fees { padding: 1.4rem 1.6rem; border: 1px solid rgba(241, 196, 15, 0.5); border-radius: 0.8rem; background: rgba(8, 25, 52, 0.78); box-shadow: 0 0 20px rgba(0, 128, 255, 0.12); }
+.flagship-fees h2 { margin-bottom: 1rem; color: #f1c40f; }
+.flagship-fees ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem 1.4rem; max-width: 900px; margin: 0 auto 1rem; list-style: none; text-align: left; }
+.flagship-fees li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(112, 156, 255, 0.25); font-size: 0.78rem; }
+.flagship-fees li strong { color: #f1c40f; white-space: nowrap; }
+.flagship-fees em { color: #9fb8e7; font-size: 0.7rem; font-style: normal; }
+.pass-note { font-style: italic; }
+
+.pass-manual,
+.pass-grid,
+.flagship-fees {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .pass-grid { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+  .pass-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .pass-page-content { padding: 1.5rem 1rem 2rem; }
+  .pass-grid { grid-template-columns: 1fr; }
+  .pass-steps { grid-template-columns: 1fr; }
+  .flagship-fees ul { grid-template-columns: 1fr; }
 }
 
 main {
@@ -953,10 +1152,66 @@ main {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background-image: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/register/images/bg-1.png");
-  background-position: center;
-  background-attachment: fixed;
-  gap: 20px;
+  background: transparent;
+  gap: 0;
+  padding: 6rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.register-starfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+main > .content,
+main > .accomodation,
+main > .pass-guidelines {
+  position: relative;
+  z-index: 1;
+}
+
+.pass-guidelines {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin: 2.5rem 0 0;
+  padding: 1rem 1.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: clamp(1.4rem, 1.4vw, 1.8rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.pass-guidelines a {
+  display: inline-block;
+  color: #00ffaa;
+  font-family: Anurati, "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+.pass-guidelines a:hover {
+  color: #7fffe0;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.65);
+}
+
+main:has(.pass-page-content) {
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px;
 }
 
 main > :not(.section-starfield) {
@@ -1010,7 +1265,7 @@ main > :not(.section-starfield) {
   -webkit-text-fill-color: transparent;
   position: relative;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .accomodation p a::after {
@@ -1089,23 +1344,17 @@ main > :not(.section-starfield) {
     width: 100%;
   }
   .content {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 12rem;
+    min-height: auto;
+    padding-top: 2rem;
   }
   .accomodation {
     margin: 40px 0px;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 550px) {
   .content {
-    grid-template-columns: minmax(0, 25rem);
-    align-items: center;
-    justify-content: center;
-    row-gap: 4rem;
-    column-gap: 4rem;
-    padding: 10rem 1rem 3rem;
+    gap: 2rem;
   }
 }
 
@@ -1184,7 +1433,7 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   overflow-x: hidden;
 }
 

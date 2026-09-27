@@ -1,5 +1,17 @@
 gsap.registerPlugin(ScrollTrigger);
 
+history.scrollRestoration = 'manual';
+function resetPageScroll() {
+  window.scrollTo(0, 0);
+}
+
+resetPageScroll();
+window.addEventListener('pageshow', function (event) {
+  if (event.persisted) {
+    resetPageScroll();
+  }
+});
+
 // ---toggle menu----
 
 function toggleMenu() {

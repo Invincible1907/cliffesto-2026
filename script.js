@@ -82,7 +82,7 @@ function initializeStarfieldCanvas(canvas) {
     targetStrength: 0,
   };
   let stars = [];
-  let animationFrame;
+  let animationFrame = null;
   let lastFrame = 0;
   let isVisible = false;
 
@@ -95,8 +95,8 @@ function initializeStarfieldCanvas(canvas) {
     context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
     const starCount = isTouchDevice
-      ? Math.min(520, Math.max(300, Math.floor((width * height) / 4000)))
-      : Math.min(3200, Math.max(2400, Math.floor((width * height) / 850)));
+      ? Math.min(700, Math.max(420, Math.floor((width * height) / 3000)))
+      : Math.min(3000, Math.max(1200, Math.floor((width * height) / 1000)));
     stars = Array.from({ length: starCount }, function () {
       const originX = Math.random() * width;
       const originY = Math.random() * height;
@@ -160,7 +160,7 @@ function initializeStarfieldCanvas(canvas) {
 
   function renderStars(timestamp) {
     if (!isVisible) {
-      animationFrame = window.requestAnimationFrame(renderStars);
+      animationFrame = null;
       return;
     }
 
@@ -240,6 +240,9 @@ function initializeStarfieldCanvas(canvas) {
   const visibilityObserver = new IntersectionObserver(
     function (entries) {
       isVisible = entries[0].isIntersecting;
+      if (isVisible && animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(renderStars);
+      }
     },
     { threshold: 0.01 }
   );
@@ -252,7 +255,6 @@ function initializeStarfieldCanvas(canvas) {
     return;
   }
 
-  animationFrame = window.requestAnimationFrame(renderStars);
 }
 
 document.addEventListener("mousemove", parallax);
@@ -265,7 +267,6 @@ function parallax(e) {
   var x = (e.clientX * -2) / 250;
   var y = (e.clientY * -2) / 250;
 
-  landing_img.style.transform = `translateX(${x}px) translateY(${y}px)`;
   title.style.transform = `translateX(${-x}px) translateY(${-y}px)`;
 }
 
@@ -408,7 +409,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  window.addEventListener("scroll", updateActiveSection);
+  let activeSectionFrame = null;
+  window.addEventListener("scroll", function () {
+    if (activeSectionFrame !== null) return;
+    activeSectionFrame = window.requestAnimationFrame(function () {
+      updateActiveSection();
+      activeSectionFrame = null;
+    });
+  }, { passive: true });
   updateActiveSection();
 });
 

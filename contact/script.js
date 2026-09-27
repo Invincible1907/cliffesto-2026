@@ -86,4 +86,42 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", sendEmail);
   }
 
+  const committeeMembers = document.querySelectorAll(".committee-member");
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+
+  if (supportsHover) {
+    committeeMembers.forEach((member) => {
+      let bounds = null;
+      let pointerX = 0;
+      let pointerY = 0;
+      let tiltFrame = null;
+
+      member.addEventListener("pointerenter", () => {
+        bounds = member.getBoundingClientRect();
+      });
+
+      member.addEventListener("pointermove", (event) => {
+        if (!bounds) bounds = member.getBoundingClientRect();
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (tiltFrame !== null) return;
+
+        tiltFrame = requestAnimationFrame(() => {
+          const horizontalTilt = ((pointerX - bounds.left) / bounds.width - 0.5) * 16;
+          const verticalTilt = ((pointerY - bounds.top) / bounds.height - 0.5) * -16;
+
+          member.style.setProperty("--tilt-x", `${horizontalTilt.toFixed(2)}deg`);
+          member.style.setProperty("--tilt-y", `${verticalTilt.toFixed(2)}deg`);
+          tiltFrame = null;
+        });
+      });
+
+      member.addEventListener("pointerleave", () => {
+        bounds = null;
+        member.style.setProperty("--tilt-x", "0deg");
+        member.style.setProperty("--tilt-y", "0deg");
+      });
+    });
+  }
+
 });

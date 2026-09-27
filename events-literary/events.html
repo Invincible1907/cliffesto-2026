@@ -28,6 +28,21 @@
       body, a, button, div, * {
         cursor: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/web-cursor-standard.png?v=4") 2 2, auto !important;
       }
+
+      .flagship-note {
+        display: block;
+        width: 100%;
+        position: relative;
+        z-index: 11;
+        margin: 1rem auto 3rem;
+        text-align: center;
+        font-family: Anurati, "Poppins", sans-serif;
+        font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--robin-egg-blue);
+        opacity: 0.9;
+      }
     </style>
   </head>
   <body class="dark">
@@ -106,7 +121,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Debate Competition</p>
+              <p class="title">Bid Wars*</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.10,000</p>
               <p class="price"></p>
@@ -129,7 +144,7 @@
             </div>
             <button
               class="action"
-              onclick=""
+              onclick="window.open('https://unstop.com/events/bid-wars-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762182', '_blank', 'noopener,noreferrer')"
             >
               register
             </button>
@@ -145,7 +160,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Prashnotsav</p>
+              <p class="title">Prashnotsav (Quiz)</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.16,000</p>
               <p class="price">Included with Pass</p>
@@ -170,7 +185,7 @@
             </div>
             <button
               class="action"
-              onclick=""
+              onclick="window.open('https://unstop.com/competitions/prashnotsav-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762250', '_blank', 'noopener,noreferrer')"
             >
                 register
             </button>
@@ -186,7 +201,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Open Mic</p>
+              <p class="title">Open Mic / Talent Hunt</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.20,000</p>
               <p class="price">Included with Pass</p>
@@ -210,7 +225,7 @@
             </div>
             <button
               class="action"
-              onclick=""
+              onclick="window.open('https://unstop.com/events/open-mic-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762262', '_blank', 'noopener,noreferrer')"
             >
                 register
             </button>
@@ -226,7 +241,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Youth Parliament</p>
+              <p class="title">Model United Nations (MUN)*</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.30,000</p>
               <p class="price"></p>
@@ -250,13 +265,15 @@
             </div>
             <button
               class="action"
-              onclick=""
+              onclick="window.open('https://unstop.com/conferences/model-united-nations-mun-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762185', '_blank', 'noopener,noreferrer')"
             >
               register
             </button>
           </div>
         </div>
       </div>
+
+      <p class="flagship-note">* represents flagship events</p>
     </main>
     <script src="../scripts/navbar.js"></script>
   </body>
@@ -279,8 +296,6 @@
 
   <!--=============== Baffle JS ===============-->
   <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
-
-  <!--=============== SCMOOTH SCROLL JS ===============-->
 
   <!--=============== MAIN JS ===============-->
   <script src="script.js"></script>
