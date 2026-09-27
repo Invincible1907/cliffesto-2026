@@ -28,6 +28,81 @@
       body, a, button, div, * {
         cursor: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/web-cursor-standard.png?v=4") 2 2, auto !important;
       }
+
+      .schedule-section {
+        width: min(1200px, 92vw);
+        margin: 6rem auto 3rem;
+        color: #111;
+      }
+
+      .schedule-heading {
+        margin: 0 0 1.5rem;
+        font-size: clamp(2rem, 2vw, 2.8rem);
+        font-weight: 500;
+        text-align: left;
+        color: #111;
+      }
+
+      .schedule-table-wrap {
+        background: #f3f3f3;
+        border: 1px solid #d6d6d6;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .schedule-table thead th {
+        background: #7b2bb3;
+        color: #fff;
+        font-size: clamp(1.8rem, 1.5vw, 2.4rem);
+        font-weight: 700;
+        padding: 1.2rem 1rem;
+        text-align: left;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+
+      .schedule-table tbody td {
+        padding: 1rem 1.2rem;
+        border: 1px solid #ddd;
+        font-size: clamp(1.6rem, 1.4vw, 2.2rem);
+        background: rgba(255, 255, 255, 0.4);
+        vertical-align: middle;
+      }
+
+      .schedule-table tbody tr:nth-child(even) td {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .schedule-table .domain-col {
+        width: 28%;
+      }
+
+      .schedule-table .title-col {
+        width: 46%;
+      }
+
+      .schedule-table .type-col {
+        width: 26%;
+      }
+
+      @media (max-width: 768px) {
+        .schedule-section {
+          width: min(94vw, 100%);
+          margin-top: 4.5rem;
+        }
+
+        .schedule-table-wrap {
+          overflow-x: auto;
+        }
+
+        .schedule-table {
+          min-width: 560px;
+        }
+      }
     </style>
   </head>
 
@@ -187,6 +262,124 @@
               />
             </svg>
           </button>
+        </div>
+      </section>
+
+      <section class="schedule-section">
+        <h2 class="schedule-heading">Below is the complete schedule of competitions happening across fest:</h2>
+
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th class="domain-col">Domain</th>
+                <th class="title-col">Event Title</th>
+                <th class="type-col">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical</td>
+                <td>Innovate 360</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Technical</td>
+                <td>Rope Crawler</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Technical</td>
+                <td>Robo Sumo Wrestling</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Technical</td>
+                <td>Cadathon</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Technical</td>
+                <td>Hackathon</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Technical</td>
+                <td>Robo Event (Robo Soccer)</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Literary</td>
+                <td>Model United Nations (MUN)</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Literary</td>
+                <td>Prashnotsav (Quiz)</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Literary</td>
+                <td>Open Mic / Talent Hunt</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Literary</td>
+                <td>Bid Wars</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Dance Competition</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Singing Competition</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Battle of Bands (BOB)</td>
+                <td>Flagship*</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Drama Competition</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Cosplay / Fashion Show</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Reel Making Competition</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Online Photography Competition</td>
+                <td>Non-Flagship</td>
+              </tr>
+              <tr>
+                <td>Pro-Nights</td>
+                <td>EDM Night</td>
+                <td>Pro-Night</td>
+              </tr>
+              <tr>
+                <td>Pro-Nights</td>
+                <td>Star Night</td>
+                <td>Pro-Night</td>
+              </tr>
+              <tr>
+                <td>E-Sports</td>
+                <td>E-Sports Tournament (Gaming)</td>
+                <td>Special Event</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>
