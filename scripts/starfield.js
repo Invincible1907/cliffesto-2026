@@ -5,8 +5,8 @@
   const context = canvas.getContext("2d");
   const pointer = { x: -1000, y: -1000 };
   const stars = [];
-  let animationFrame;
-  let visible = true;
+  let animationFrame = null;
+  let visible = false;
 
   function resize() {
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -15,7 +15,7 @@
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
     stars.length = 0;
-    const count = Math.min(1800, Math.max(500, Math.floor((innerWidth * innerHeight) / 700)));
+    const count = Math.min(900, Math.max(320, Math.floor((innerWidth * innerHeight) / 1500)));
     for (let index = 0; index < count; index += 1) {
       const originX = Math.random() * innerWidth;
       const originY = Math.random() * innerHeight;
@@ -63,7 +63,7 @@
         context.fillRect(star.x, star.y, star.radius, star.radius);
       });
     }
-    animationFrame = window.requestAnimationFrame(render);
+    animationFrame = visible ? window.requestAnimationFrame(render) : null;
   }
 
   resize();
@@ -79,6 +79,9 @@
 
   const observer = new IntersectionObserver(function (entries) {
     visible = entries[0].isIntersecting;
+    if (visible && animationFrame === null) {
+      animationFrame = window.requestAnimationFrame(render);
+    }
   });
   observer.observe(canvas);
 
@@ -88,5 +91,4 @@
     return;
   }
 
-  animationFrame = window.requestAnimationFrame(render);
 })();

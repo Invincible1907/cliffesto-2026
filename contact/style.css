@@ -96,30 +96,108 @@ body {
 
 .committee-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .committee-member {
-  min-height: 150px;
+  grid-column: span 2;
+}
+
+.committee-member:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.committee-member:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.committee-member {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 220px;
   padding: 1.5rem;
   background: rgba(6, 13, 26, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 0.8rem;
+  border: 0;
+  border-radius: 2.5rem;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M10 0H35C39 0 39 8 50 8S61 0 65 0H90Q100 0 100 10V90Q100 100 90 100H65C61 100 61 92 50 92S39 100 35 100H10Q0 100 0 90V10Q0 0 10 0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M10 0H35C39 0 39 8 50 8S61 0 65 0H90Q100 0 100 10V90Q100 100 90 100H65C61 100 61 92 50 92S39 100 35 100H10Q0 100 0 90V10Q0 0 10 0Z'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.75));
+  transition: transform 300ms ease, border-color 300ms ease,
+    box-shadow 300ms ease, filter 300ms ease;
+  transform: perspective(800px) rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg));
+  transform-style: preserve-3d;
+}
+
+.committee-member::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 170, 0.24) 0%,
+    rgba(0, 162, 255, 0.12) 38%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.committee-member::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.16) 48%,
+    transparent 72%
+  );
+  transform: translateX(-120%);
+  transition: transform 500ms ease;
+}
+
+.committee-member:hover {
+  box-shadow: 0 0 22px rgba(0, 255, 170, 0.24),
+    inset 0 0 18px rgba(0, 162, 255, 0.12);
+  filter: brightness(1.1) drop-shadow(0 0 2px #00ffaa);
+  transform: perspective(800px) translateY(-8px) scale(1.02)
+    rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+}
+
+.committee-member:hover::before {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.committee-member:hover::after {
+  transform: translateX(120%);
 }
 
 .committee-member h3 {
+  position: relative;
+  transition: transform 300ms ease, color 300ms ease;
   margin-bottom: 0.8rem;
   font-family: Poppins, Arial, Helvetica, sans-serif;
-  font-size: 1.45rem;
+  font-size: clamp(1.9rem, 2vw, 2.4rem);
   line-height: 1.2;
+}
+
+.committee-member:hover h3 {
+  color: #00ffaa;
+  transform: translateY(-4px);
 }
 
 .committee-member p,
 .committee-member a {
   display: block;
   font-family: Poppins, Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1.35rem, 1.4vw, 1.7rem);
   line-height: 1.45;
 }
 
@@ -218,6 +296,36 @@ body {
   letter-spacing: 0.05em;
 }
 
+.developer-credit {
+  grid-column: 1 / -1;
+  margin: 2rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: clamp(12px, 0.9vw, 15px);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.developer-credit a {
+  color: #00ffaa;
+  font-family: Anurati, "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+.developer-credit a:hover {
+  color: #7fffe0;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.65);
+}
+
+.developer-credit i {
+  margin-left: 0.3rem;
+  font-size: clamp(14px, 1vw, 17px);
+  vertical-align: -0.15em;
+}
+
 @media (max-width: 768px) {
   .contact-page {
     padding-top: 10rem;
@@ -230,6 +338,12 @@ body {
 
   .committee-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .committee-member,
+  .committee-member:nth-child(4),
+  .committee-member:nth-child(5) {
+    grid-column: auto;
   }
 
   .contact-right-section form {

@@ -108,24 +108,25 @@ body {
   z-index: 998;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  width: 8.2rem;
-  padding: 0.8rem 0.65rem;
-  border: 1px solid rgba(112, 156, 255, 0.55);
+  gap: 0.55rem;
+  width: 13rem;
+  padding: 0.9rem 0.8rem;
+  border: 1px solid rgba(63, 123, 255, 0.9);
   border-right: 0;
-  border-radius: 0.7rem 0 0 0.7rem;
-  background: linear-gradient(180deg, rgba(18, 10, 54, 0.96), rgba(3, 18, 38, 0.96));
-  box-shadow: 0 0 18px rgba(121, 45, 255, 0.28);
+  border-radius: 0.9rem 0 0 0.9rem;
+  background: linear-gradient(180deg, rgba(6, 8, 18, 0.98), rgba(16, 13, 37, 0.98));
+  box-shadow: 0 0 18px rgba(122, 75, 255, 0.35), inset 0 0 16px rgba(0, 255, 237, 0.08);
   transform: translateY(-50%);
 }
 
 .category-switcher span {
   display: block;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid rgba(157, 0, 198, 0.65);
-  color: #d9e4ff;
-  font-size: 0.58rem;
-  letter-spacing: 0.08rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(0, 255, 237, 0.8);
+  color: #edf4ff;
+  font-family: Anurati, "Poppins", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.12rem;
   line-height: 1.35;
   text-align: center;
 }
@@ -142,21 +143,23 @@ body {
 
 .category-switcher a {
   display: flex;
-  min-height: 2.7rem;
+  min-height: 3.3rem;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem 0.25rem;
-  border: 1px solid transparent;
-  border-radius: 0.35rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.06rem;
+  padding: 0.5rem 0.4rem;
+  border: 1px solid rgba(120, 70, 255, 0.4);
+  border-radius: 0.45rem;
+  background: rgba(21, 21, 31, 0.9);
+  color: #f3f6ff;
+  font-size: 0.9rem;
+  letter-spacing: 0.08rem;
   line-height: 1.2;
   text-align: center;
 }
 
 .category-switcher a:hover,
 .category-switcher a.active {
-  color: #f1c40f;
+  color: #00ffed;
   transform: translateX(-2px);
 }
 
@@ -169,9 +172,9 @@ body {
 
 .category-switcher a:hover,
 .category-switcher a.active {
-  border-color: rgba(241, 196, 15, 0.75);
-  background: rgba(157, 0, 198, 0.24);
-  box-shadow: 0 0 12px rgba(157, 0, 198, 0.35);
+  border-color: rgba(0, 255, 237, 0.9);
+  background: linear-gradient(180deg, rgba(34, 34, 74, 0.95), rgba(38, 17, 63, 0.95));
+  box-shadow: 0 0 12px rgba(157, 0, 198, 0.32), inset 0 0 10px rgba(0, 255, 237, 0.12);
 }
 
 .page-back {

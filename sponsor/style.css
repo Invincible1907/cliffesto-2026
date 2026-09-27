@@ -236,7 +236,7 @@ section {
   box-shadow: none;
   color: white;
   border-bottom: 1px solid white;
-  transition: all ease 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu .menu-sidebar .close-button:hover {
@@ -626,7 +626,7 @@ select::placeholder {
   width: 99%;
   height: 99%;
   background-color: ;
-  backdrop-filter: blur(500px);
+  backdrop-filter: blur(18px);
   border-radius: 5px;
   color: white;
   display: flex;

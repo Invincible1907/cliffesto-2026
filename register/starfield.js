@@ -9,7 +9,7 @@
   const swipe = { active: false, x: -1000, y: -1000, directionX: 0, directionY: 0, strength: 0, targetStrength: 0 };
   let stars = [];
   let visible = false;
-  let animationFrame;
+  let animationFrame = null;
   let lastFrame = 0;
 
   function resize() {
@@ -19,7 +19,7 @@
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const count = touchDevice ? Math.min(520, Math.max(300, Math.floor((width * height) / 4000))) : Math.min(3200, Math.max(2400, Math.floor((width * height) / 850)));
+    const count = touchDevice ? Math.min(360, Math.max(220, Math.floor((width * height) / 5500))) : Math.min(1500, Math.max(700, Math.floor((width * height) / 1800)));
 
     stars = Array.from({ length: count }, function () {
       const x = Math.random() * width;
@@ -66,7 +66,7 @@
 
   function render(timestamp) {
     if (!visible) {
-      animationFrame = requestAnimationFrame(render);
+      animationFrame = null;
       return;
     }
     if (touchDevice && timestamp - lastFrame < 33) {
@@ -121,6 +121,10 @@
   section.addEventListener("touchmove", moveSwipe, { passive: true });
   section.addEventListener("touchend", function () { swipe.active = false; swipe.targetStrength = 0; }, { passive: true });
   window.addEventListener("resize", resize, { passive: true });
-  new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }, { threshold: 0.01 }).observe(canvas);
-  animationFrame = requestAnimationFrame(render);
+  new IntersectionObserver(function (entries) {
+    visible = entries[0].isIntersecting;
+    if (visible && animationFrame === null) {
+      animationFrame = requestAnimationFrame(render);
+    }
+  }, { threshold: 0.01 }).observe(canvas);
 })();

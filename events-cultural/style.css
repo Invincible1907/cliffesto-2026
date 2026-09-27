@@ -237,7 +237,7 @@ section {
   box-shadow: none;
   color: white;
   border-bottom: 1px solid white;
-  transition: all ease 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu .menu-sidebar .close-button:hover {
@@ -267,6 +267,7 @@ body.dark {
 }
 
 .container {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;

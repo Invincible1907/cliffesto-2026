@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 }
 
 body {
-  background: var(--bg-color);
+  background: #020b18 url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/register/images/bg-1.png") center top / cover fixed no-repeat;
   color: white;
 }
 
@@ -242,7 +242,7 @@ section {
   color: white;
   border-bottom: 1px solid white;
   border-radius: 1rem;
-  transition: all ease 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu .menu-sidebar .close-button:hover {
@@ -264,7 +264,7 @@ section {
   position: relative;
   width: 25rem;
   height: 37rem;
-  transition: 200ms;
+  transition: transform 200ms ease;
 }
 
 .container:active {
@@ -280,7 +280,7 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  transition: 700ms;
+  transition: transform 180ms ease, filter 180ms ease;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -501,12 +501,12 @@ section {
 }
 
 .tracker:hover ~ #card {
-  transition: 300ms;
+  transition: filter 300ms ease;
   filter: brightness(1.1);
 }
 
 .container:hover #card::before {
-  transition: 200ms;
+  transition: opacity 200ms ease;
   content: "";
   opacity: 80%;
 }
@@ -910,7 +910,7 @@ section {
 }
 
 .corner-elements span {
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #card:hover .corner-elements span {
@@ -1131,9 +1131,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/register/images/bg-1.png");
-  background-position: center;
-  background-attachment: fixed;
+  background: transparent;
   gap: 0;
   padding: 6rem 1.5rem 3rem;
   box-sizing: border-box;
@@ -1150,9 +1148,43 @@ main {
 }
 
 main > .content,
-main > .accomodation {
+main > .accomodation,
+main > .pass-guidelines {
   position: relative;
   z-index: 1;
+}
+
+.pass-guidelines {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin: 2.5rem 0 0;
+  padding: 1rem 1.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: clamp(1.4rem, 1.4vw, 1.8rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.pass-guidelines a {
+  display: inline-block;
+  color: #00ffaa;
+  font-family: Anurati, "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+.pass-guidelines a:hover {
+  color: #7fffe0;
+  text-shadow: 0 0 10px rgba(0, 255, 170, 0.65);
 }
 
 main:has(.pass-page-content) {
@@ -1177,7 +1209,7 @@ main:has(.pass-page-content) {
   -webkit-text-fill-color: transparent;
   position: relative;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .accomodation p a::after {

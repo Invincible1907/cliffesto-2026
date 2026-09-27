@@ -22,18 +22,12 @@ function animateElements() {
 
   gsap.fromTo(
     ".content",
-    { y: "100%", opacity: 0 },
-    { y: "0%", opacity: 1, duration: 1 }
-  );
-
-  gsap.fromTo(
-    ".accomodation",
-    { y: "500%", opacity: 0 },
-    { y: "0%", opacity: 1, duration: 1 }
+    { opacity: 0 },
+    { opacity: 1, duration: 0.35, ease: "power1.out" }
   );
 
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(animateElements);
+  requestAnimationFrame(animateElements);
 });

@@ -28,6 +28,21 @@
       body, a, button, div, * {
         cursor: url("https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/web-cursor-standard.png?v=4") 2 2, auto !important;
       }
+
+      .flagship-note {
+        display: block;
+        width: 100%;
+        position: relative;
+        z-index: 11;
+        margin: 1rem auto 3rem;
+        text-align: center;
+        font-family: Anurati, "Poppins", sans-serif;
+        font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--robin-egg-blue);
+        opacity: 0.9;
+      }
     </style>
   </head>
 
@@ -186,7 +201,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Hackathon</p>
+              <p class="title">Hackathon*</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.35,000</p>
               <p class="price">INR 799 per team</p>
@@ -266,7 +281,7 @@
             <div class="overlay"></div>
 
             <div class="event-info">
-              <p class="title">Robo Event (Robo Soccer)</p>
+              <p class="title">Robo Event (Robo Soccer)*</p>
               <div class="separator"></div>
               <p class="info">Prize Pool Worth Rs.16,000</p>
               <p class="price"></p>
@@ -336,6 +351,8 @@
         </div>
 
       </div>
+
+      <p class="flagship-note">* represents flagship events</p>
     </main>
     <script src="../scripts/navbar.js"></script>
   </body>
