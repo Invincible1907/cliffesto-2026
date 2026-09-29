@@ -33,3 +33,7 @@ Thumbs.db
 *.tar.gz
 *.rar
 *.7z
+
+# Local image staging copies
+/events-technical/images/
+/gallery/1790720888306.jpg
