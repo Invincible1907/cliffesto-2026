@@ -945,7 +945,7 @@ section {
   gap: 3rem 2.5rem;
   justify-content: center;
   align-items: start;
-  align-content: center;
+  align-content: flex-start;
   height: auto;
   min-height: calc(100vh - 6rem);
   max-width: 110rem;
@@ -1214,7 +1214,7 @@ main:has(.pass-page-content) {
   padding-top: 60px;
 }
 
-main > :not(.section-starfield) {
+main > :not(.section-starfield):not(.register-starfield) {
   position: relative;
   z-index: 1;
 }
