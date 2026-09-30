@@ -1002,9 +1002,49 @@ section {
 }
 
 .footer .footer-right-section h4 {
-  font-size: 2rem;
-  font-family: poppins;
+  font-size: clamp(3rem, 2.7vw, 5rem);
+  line-height: 1.2;
+  letter-spacing: 0.12rem;
+  font-family: Anurati, "Poppins", sans-serif;
   margin-top: 5rem;
+  text-transform: uppercase;
+}
+
+.footer .footer-right-section .join-campus-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 3.75rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--robin-egg-blue);
+  background: linear-gradient(135deg, rgba(0, 255, 237, 0.18), rgba(157, 0, 198, 0.28));
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(0, 255, 237, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.footer .footer-right-section .join-campus-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 28px rgba(0, 255, 237, 0.4);
+  border-color: #8fddff;
+}
+
+.footer .footer-right-section .exclusive-merch {
+  margin-top: 3.15rem;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.06rem;
+  text-shadow: 0 0 12px rgba(0, 255, 237, 0.2);
 }
 
 .footer .footer-right-section h3 {
@@ -1023,6 +1063,15 @@ section {
   text-decoration: none;
 }
 
+.footer .footer-right-section .social-media-icons {
+  position: absolute;
+  left: 3rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .footer .footer-right-section .social-media-icons .btn {
   display: inline-flex;
   align-items: center;
@@ -1032,7 +1081,6 @@ section {
   width: 5rem;
   border: 2px solid white;
   font-size: 2.5rem;
-  margin-right: 2rem;
 }
 
 .footer .footer-right-section .social-media-icons .btn:hover i {
@@ -1045,14 +1093,12 @@ section {
 }
 
 .footer .footer-right-section .social-media-icons .reset {
-  position: absolute;
+  position: static;
   rotate: 45deg;
   font-size: 6rem;
   border: none;
   color: white;
   background: transparent;
-  bottom: 2rem;
-  right: 3rem;
 }
 
 /* -----------KEYFRAMES---------- */
