@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Recover from the server filesystem path that was exposed as a public URL.
+RewriteRule ^var/www/html/web/?$ ./ [R=301,L]
+
 # Redirect old page URLs to their clean equivalents.
 RewriteCond %{THE_REQUEST} \s/+[^\s?]+/index\.html(?:[?\s]) [NC]
 RewriteRule ^index\.html$ ./ [R=301,L]

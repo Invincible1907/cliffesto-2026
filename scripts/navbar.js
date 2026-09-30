@@ -21,6 +21,17 @@
   ];
 
   function url(path) {
+    if (window.location.protocol === "file:") {
+      const localRoutes = {
+        home: "index.html",
+        "events/": "events/events.html",
+        "passes/": "register/register.html",
+        "contact/": "contact/contact.html",
+        "sponsor/": "sponsor/sponsor.html",
+        gallery: "past-events.html",
+      };
+      path = localRoutes[path] || path;
+    }
     return new URL(path, root).href;
   }
 
@@ -110,7 +121,7 @@
     if (!page.endsWith("/index.html") && !page.endsWith("/") && !document.querySelector(".page-back")) {
       const back = document.createElement("a");
       back.className = "page-back";
-      back.href = url(currentCategory ? "events/events.html" : "index.html");
+      back.href = url(currentCategory ? "events/" : "home");
       back.textContent = currentCategory ? "BACK TO EVENTS" : "BACK TO HOME";
       back.setAttribute("aria-label", back.textContent);
       document.body.appendChild(back);

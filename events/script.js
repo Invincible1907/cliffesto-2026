@@ -12,21 +12,29 @@ function animateElements() {
     { y: "0%", opacity: 1, duration: 1, ease: "power2.out" }
   );
 
-  gsap.fromTo(
-    ".card",
-    { y: "100%", opacity: 0 },
-    { y: "0%", opacity: 1, duration: 1, ease: "power2.out" }
-  );
+  const cards = document.querySelectorAll(".card");
+  if (cards.length) {
+    gsap.fromTo(
+      cards,
+      { y: "100%", opacity: 0 },
+      { y: "0%", opacity: 1, duration: 1, ease: "power2.out" }
+    );
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(animateElements);
 });
 
-$(".card").hover(function () {
-  $(".card").removeClass("active");
-  $(this).addClass("active");
-});
+const cards = document.querySelectorAll(".card");
+if (cards.length) {
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      cards.forEach((item) => item.classList.remove("active"));
+      card.classList.add("active");
+    });
+  });
+}
 
 let items = document.querySelectorAll(".slider .list .item");
 let prevBtn = document.getElementById("prev");
