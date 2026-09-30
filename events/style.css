@@ -154,12 +154,15 @@ section {
 /* ------------btn--------------- */
 
 .btn {
+  display: inline-flex;
   background: transparent;
   align-items: center;
   color: white;
   overflow: hidden;
   position: relative;
   transition: 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -500,7 +503,8 @@ section {
   pointer-events: none;
   animation: showModel 1s ease-in-out 1 forwards;
 }
-.content button {
+.content button,
+.content a.btn {
   background-color: transparent;
   border: 1px solid white;
   padding: 10px 20px;
@@ -511,18 +515,25 @@ section {
   gap: 5px;
   color: white;
   border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
 }
 
-.content button:hover {
+.content button:hover,
+.content a.btn:hover {
   background-color: white;
   color: black;
-  transition: color 0.5s ease, transform 0.5s ease;
 }
 
-.content button:hover svg {
+.content button:hover svg,
+.content a.btn:hover svg {
   color: black;
   transform: rotate(-45deg);
   transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.content a.btn::before {
+  display: none;
 }
 
 @keyframes showModel {
@@ -712,6 +723,10 @@ main,
 }
 
 @media (max-width: 767px) {
+  .events-carousel-page .page-back {
+    display: none;
+  }
+
   body {
     background-color: #05070d;
     background-image:
@@ -726,12 +741,14 @@ main,
 
   .slider .list .item .content {
     top: clamp(7rem, 15vh, 11rem);
-    width: min(88vw, 38rem);
+    left: 6vw;
+    width: 88vw;
     max-width: calc(100vw - 2rem);
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 0;
     text-align: center;
+    transform: none;
   }
 
   .slider .list .item .content h2 {
@@ -744,8 +761,20 @@ main,
   }
 
   .slider .list .item .content p:last-child {
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    bottom: calc(max(3rem, env(safe-area-inset-bottom, 0px)) + 56px);
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    margin: 0;
+    padding: 0;
+    transform: translateX(-50%);
     justify-content: center;
-    padding-bottom: 0;
+  }
+
+  .slider .list .item .content a.btn {
+    min-height: 44px;
   }
 
   .slider .list .item .image {

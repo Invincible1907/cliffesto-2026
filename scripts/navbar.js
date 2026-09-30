@@ -2,6 +2,10 @@
   const script = document.currentScript || document.querySelector('script[src*="navbar.js"]');
   if (!script) return;
 
+  const pageLoaderScript = document.createElement("script");
+  pageLoaderScript.src = new URL("page-loader.js", script.src).href;
+  document.head.appendChild(pageLoaderScript);
+
   const root = new URL("../", script.src);
   const page = window.location.pathname;
 

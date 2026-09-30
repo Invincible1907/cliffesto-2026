@@ -23,7 +23,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// main JS
 
 // landing animations
 function animateElements() {
@@ -45,6 +44,201 @@ function animateElements() {
     speed: 150,
   });
 
+}
+
+function initializeLoader() {
+  const loader = document.getElementById("loading-screen");
+  const canvas = document.getElementById("loader-canvas");
+  if (!loader || !canvas) return;
+
+  const context = canvas.getContext("2d");
+  const stars = [];
+  const ambientGrains = [];
+  const logoGrains = [];
+  const enclosureGrains = [];
+  const expansionRings = [];
+  let formationStart = 0;
+
+  function themeParticleColor(position, alpha) {
+    const mix = (Math.sin(position) + 1) / 2;
+    const red = Math.round(157 * (1 - mix));
+    const green = Math.round(255 * mix);
+    const blue = Math.round(198 * (1 - mix) + 237 * mix);
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+  }
+
+  function resizeLoader() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const width = canvas.clientWidth || 700;
+    const height = canvas.clientHeight || 280;
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    stars.length = 0;
+    const count = Math.max(120, Math.min(260, Math.floor((width * height) / 18)));
+    for (let index = 0; index < count; index += 1) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 1.8 + 0.8,
+        alpha: Math.random() * 0.8 + 0.2,
+        phase: Math.random() * Math.PI * 2,
+        drift: Math.random() * 0.015 + 0.005,
+      });
+    }
+
+    ambientGrains.length = 0;
+    for (let index = 0; index < 260; index += 1) {
+      ambientGrains.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 1.2 + 0.3,
+        alpha: Math.random() * 0.12 + 0.025,
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
+
+    createLogoParticles(width, height);
+  }
+
+  function createLogoParticles(width, height) {
+    const logoImage = new Image();
+    logoImage.onload = function () {
+      const logoWidth = Math.min(width * 0.42, height * 0.58);
+      const logoHeight = logoWidth * (logoImage.naturalHeight / logoImage.naturalWidth);
+      const maskCanvas = document.createElement("canvas");
+      maskCanvas.width = Math.max(1, Math.round(logoWidth));
+      maskCanvas.height = Math.max(1, Math.round(logoHeight));
+      const maskContext = maskCanvas.getContext("2d", { willReadFrequently: true });
+      maskContext.drawImage(logoImage, 0, 0, maskCanvas.width, maskCanvas.height);
+
+      const pixels = maskContext.getImageData(0, 0, maskCanvas.width, maskCanvas.height).data;
+      const centerX = width / 2;
+      const centerY = height / 2;
+      logoGrains.length = 0;
+      for (let y = 0; y < maskCanvas.height; y += 2) {
+        for (let x = 0; x < maskCanvas.width; x += 2) {
+          const alpha = pixels[(y * maskCanvas.width + x) * 4 + 3];
+          if (alpha > 90) {
+            logoGrains.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              targetX: centerX - maskCanvas.width / 2 + x,
+              targetY: centerY - maskCanvas.height / 2 + y,
+              size: Math.random() * 1.2 + 0.65,
+              alpha: alpha / 255,
+              phase: Math.random() * Math.PI * 2,
+            });
+          }
+        }
+      }
+
+      const logoRadius = Math.hypot(maskCanvas.width / 2, maskCanvas.height / 2) + 18;
+      const maxRadius = Math.min(width, height) * 0.47;
+      enclosureGrains.length = 0;
+      for (let index = 0; index < 420; index += 1) {
+        const angle = (index / 420) * Math.PI * 2;
+        enclosureGrains.push({
+          angle,
+          radius: logoRadius + (Math.random() - 0.5) * 2.4,
+          size: Math.random() * 1.35 + 0.55,
+          alpha: Math.random() * 0.48 + 0.45,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+
+      expansionRings.length = 0;
+      for (let ringIndex = 0; ringIndex < 4; ringIndex += 1) {
+        const particles = [];
+        for (let index = 0; index < 150; index += 1) {
+          particles.push({
+            angle: (index / 150) * Math.PI * 2 + (Math.random() - 0.5) * 0.025,
+            size: Math.random() * 1.35 + 0.45,
+            alpha: Math.random() * 0.5 + 0.3,
+            phase: Math.random() * Math.PI * 2,
+          });
+        }
+        expansionRings.push({
+          particles,
+          startRadius: logoRadius + 9,
+          span: Math.max(12, maxRadius - logoRadius - 9),
+          phase: ringIndex / 4,
+        });
+      }
+      formationStart = performance.now();
+    };
+    logoImage.src = "CDN_Images/images/logo1.png";
+  }
+
+  function renderLoader(timestamp) {
+    const width = canvas.clientWidth || 700;
+    const height = canvas.clientHeight || 280;
+
+    context.clearRect(0, 0, width, height);
+
+    stars.forEach(function (star) {
+      const pulse = 0.35 + (Math.sin(timestamp * star.drift + star.phase) + 1) * 0.35;
+      const x = star.x + Math.sin(timestamp * 0.002 + star.phase) * 3;
+      const y = star.y + Math.cos(timestamp * 0.0025 + star.phase) * 2.5;
+      context.fillStyle = `rgba(255,255,255,${star.alpha * pulse})`;
+      context.beginPath();
+      context.arc(x, y, star.r, 0, Math.PI * 2);
+      context.fill();
+    });
+
+    ambientGrains.forEach(function (grain) {
+      const shimmer = 0.72 + Math.sin(timestamp * 0.002 + grain.phase) * 0.28;
+      context.fillStyle = `rgba(217, 241, 255, ${grain.alpha * shimmer})`;
+      context.fillRect(grain.x, grain.y, grain.size, grain.size);
+    });
+
+    if (logoGrains.length) {
+      const formation = Math.min(1, Math.max(0, (timestamp - formationStart) / 1100));
+      const easedFormation = 1 - Math.pow(1 - formation, 3);
+      logoGrains.forEach(function (grain) {
+        const x = grain.x + (grain.targetX - grain.x) * easedFormation;
+        const y = grain.y + (grain.targetY - grain.y) * easedFormation;
+        const shimmer = 0.75 + Math.sin(timestamp * 0.003 + grain.phase) * 0.25;
+        context.fillStyle = `rgba(238, 250, 255, ${grain.alpha * shimmer})`;
+        context.fillRect(x, y, grain.size, grain.size);
+      });
+
+      enclosureGrains.forEach(function (grain) {
+        const shimmer = 0.62 + Math.sin(timestamp * 0.0025 + grain.phase) * 0.38;
+        const x = width / 2 + Math.cos(grain.angle) * grain.radius;
+        const y = height / 2 + Math.sin(grain.angle) * grain.radius;
+        context.fillStyle = themeParticleColor(grain.angle + timestamp * 0.0002, grain.alpha * shimmer);
+        context.fillRect(x, y, grain.size, grain.size);
+      });
+
+      expansionRings.forEach(function (ring) {
+        const progress = ((timestamp * 0.00012 + ring.phase) % 1);
+        const radius = ring.startRadius + progress * ring.span;
+        const fade = 1 - progress;
+        ring.particles.forEach(function (particle) {
+          const shimmer = 0.65 + Math.sin(timestamp * 0.003 + particle.phase) * 0.35;
+          const x = width / 2 + Math.cos(particle.angle) * radius;
+          const y = height / 2 + Math.sin(particle.angle) * radius;
+          context.fillStyle = themeParticleColor(particle.angle + timestamp * 0.0002, particle.alpha * shimmer * fade);
+          context.fillRect(x, y, particle.size, particle.size);
+        });
+      });
+    }
+
+    requestAnimationFrame(renderLoader);
+  }
+
+  resizeLoader();
+  requestAnimationFrame(renderLoader);
+
+  window.addEventListener("resize", resizeLoader, { passive: true });
+
+  setTimeout(function () {
+    loader.classList.add("hidden");
+    document.body.classList.add("loaded");
+    document.body.classList.remove("loading");
+  }, 1800);
 }
 
 document.addEventListener("DOMContentLoaded", function () {

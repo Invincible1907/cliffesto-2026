@@ -565,8 +565,20 @@ body { min-width: 320px; }
 .menu .menu-sidebar { position: absolute; top: 0; right: 0; width: 0; height: 100%; border-left: 0; pointer-events: none; }
 .menu .menu-sidebar .close-button { position: absolute; top: 0; right: 0; width: 60px; pointer-events: auto; }
 .container { min-height: 100svh; padding: 8rem 1rem 3rem; }
-.item-container { width: min(32rem, calc(100vw - 2rem)); height: min(57rem, 145vw); margin: 1.2rem; }
-@media (max-width: 630px) { .container { padding-top: 7rem; } .item-container { height: min(52rem, 145vw); } }
+.item-container { width: min(320px, calc(100vw - 32px)); height: min(570px, 145vw); margin: 1.2rem; }
+@media (max-width: 630px) { .container { padding-top: 7rem; } .item-container { height: min(520px, 145vw); } }
+@media (hover: none), (pointer: coarse) {
+  .item-container { display: flex; height: auto; flex-direction: column; }
+  .img-container { position: relative; top: auto; left: auto; width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .img-container img { width: 100%; height: 100%; object-fit: cover; }
+  .body-container { position: relative; top: auto; left: auto; width: 100%; height: auto; flex: 1; }
+  .overlay { display: none; }
+  .event-info { height: auto; padding: 1.2rem; }
+  .additional-info { padding: 1.2rem 0 0; }
+  .action,
+  .item-container:hover .action { position: static; display: block; width: 100%; min-height: 44px; margin-top: 1rem; padding: 0.8rem 1rem; transform: none; }
+  .item-container:hover .overlay { height: auto; opacity: 0; }
+}
 @media (max-width: 400px) { .menu .menu-content .menu-list a { font-size: 2.2rem; letter-spacing: 0.25rem; } }
 
 /* Match the homepage quick-access width at every viewport size. */

@@ -27,6 +27,15 @@
   border: none;
   outline: none;
   scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Anurati, "Poppins", sans-serif;
 }
 
@@ -51,6 +60,64 @@ body::-webkit-scrollbar-thumb {
 body {
   background: var(--bg-color);
   color: white;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow-x: hidden;
+}
+
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(157, 0, 198, 0.1), transparent 48%),
+    radial-gradient(ellipse at 50% 54%, rgba(0, 255, 237, 0.035), transparent 64%),
+    #06070b;
+  transition: opacity 0.85s ease, visibility 0.85s ease, transform 0.85s ease, filter 0.85s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.025);
+  filter: blur(4px);
+}
+
+.loader-shell {
+  position: relative;
+  display: block;
+  width: min(88vw, 900px);
+  height: min(72vh, 580px);
+  height: min(72svh, 580px);
+  min-height: min(220px, 60vh);
+}
+
+#loader-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: saturate(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loading-screen {
+    transition: opacity 0.2s linear, visibility 0.2s linear;
+  }
+
+  #loading-screen.hidden {
+    transform: none;
+    filter: none;
+  }
 }
 
 section {
@@ -102,6 +169,7 @@ section {
 
 .header .navbar-items a {
   color: white;
+  font-family: Anurati, "Poppins", sans-serif;
   letter-spacing: 0.3rem;
   display: inline-block;
   transition: transform 180ms ease;
@@ -182,10 +250,6 @@ section {
   font-size: 2.5rem;
 }
 
-.header .menu-icon:hover {
-  /* cursor: pointer; */
-}
-
 /* --------menu styling--------- */
 
 .menu {
@@ -245,6 +309,7 @@ section {
 .menu .menu-content .menu-list a {
   font-size: 3rem;
   color: white;
+  font-family: Anurati, "Poppins", sans-serif;
   letter-spacing: 0.5rem;
 }
 
@@ -517,9 +582,10 @@ section {
 .contact .contact-left-section p {
   width: auto;
   max-width: 80%;
-  font-family: poppins;
-  font-size: 1.4rem;
-  letter-spacing: 0.2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
 }
 
 /* -------------EVENTS------------- */
@@ -567,12 +633,16 @@ section {
   margin-bottom: 5rem;
 }
 
-.events .event-left-section button {
+.events .event-left-section button,
+.events .event-left-section a.btn {
+  display: inline-flex;
+  align-items: center;
   padding: 1.2rem 3%;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
   border-radius: 20px;
   border: 1px solid white;
+  text-decoration: none;
 }
 
 .event-right-section {
@@ -971,22 +1041,25 @@ section {
   font-family: poppins;
 }
 
-.footer .footer-middle-section .middle-section-content button {
+.footer .footer-middle-section .middle-section-content .btn {
   border: 0.2rem solid white;
   padding: 1rem 2rem;
   border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
   position: absolute;
   left: 3rem;
   bottom: 5rem;
   z-index: 1;
+  text-decoration: none;
 }
 
-.footer .footer-middle-section .middle-section-content button .btn-label {
+.footer .footer-middle-section .middle-section-content .btn .btn-label {
   position: relative;
   z-index: 1;
 }
 
-.footer .footer-middle-section .middle-section-content button:hover .btn-label {
+.footer .footer-middle-section .middle-section-content .btn:hover .btn-label {
   color: black;
 }
 
@@ -1012,6 +1085,7 @@ section {
 
 .footer .footer-right-section .join-campus-btn {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   width: fit-content;
@@ -1077,8 +1151,9 @@ section {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  height: 5rem;
-  width: 5rem;
+  height: 44px;
+  width: 44px;
+  min-width: 44px;
   border: 2px solid white;
   font-size: 2.5rem;
 }
@@ -1133,7 +1208,6 @@ section {
 @media (max-width: 1100px) {
   html {
     overflow-x: hidden;
-    font-size: 40%;
   }
   .left-img-container {
     display: none;
@@ -1192,10 +1266,6 @@ section {
 }
 
 @media (max-width: 630px) {
-  html {
-    font-size: 40%;
-  }
-
   .landing-page .title h1 {
     font-size: 30px;
     margin: 0;
@@ -1328,7 +1398,7 @@ section {
 
   .events {
     flex-direction: column;
-    background: url(images/about-info.jpg);
+    background-image: none;
   }
 
   .events .event-left-section {
@@ -1489,7 +1559,6 @@ img {
   -webkit-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 /* ----------------RESPONSIVE VIEWPORT OVERRIDES---------------- */
@@ -1648,7 +1717,8 @@ img {
     max-width: 42rem;
     width: 100%;
     font-size: clamp(1.2rem, 3.2vw, 1.4rem);
-    letter-spacing: 0.08rem;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
   }
 
   .events .event-left-section {

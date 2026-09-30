@@ -32,7 +32,13 @@
     </style>
   </head>
 
-  <body>
+  <body class="loading">
+    <div id="loading-screen" aria-live="polite" aria-label="Loading Cliffesto">
+      <div class="loader-shell">
+        <canvas id="loader-canvas" aria-hidden="true"></canvas>
+      </div>
+    </div>
+
     <!-- HEADER  -->
 
     <header class="header">
@@ -138,18 +144,15 @@
               Cliffesto 2026: Where innovation and culture take the stage!
             </p>
 
-            <button
-              class="btn"
-              onclick="window.location.href='past-events.html'"
-            >
+            <a class="btn" href="past-events.html">
               EVENT GALLERY
-            </button>
+            </a>
           </div>
 
           <div class="event-right-section">
             <div class="event-item">
-              <a href="events-cultural/events.html">
-                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p2.png" alt="planet" />
+              <a href="events-cultural/">
+                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p2.png" alt="planet" loading="lazy" decoding="async" />
                 <p>
                   <span>CULTURAL EVENTS</span>
                   Our fest's cultural events feature dance, music, drama,
@@ -160,8 +163,8 @@
               </a>
             </div>
             <div class="event-item">
-              <a href="events-literary/events.html">
-                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p1.png" alt="planet" />
+              <a href="events-literary/">
+                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p1.png" alt="planet" loading="lazy" decoding="async" />
                 <p>
                   <span>LITERARY EVENTS</span>
                   Our fest's literary events include debate, quiz, poetry, storytelling, essay writing, elocution, creative writing, and book discussions.
@@ -170,8 +173,8 @@
               </a>
             </div>
             <div class="event-item">
-              <a href="events-technical/events.html">
-                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p3.png" alt="planet" />
+              <a href="events-technical/">
+                <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/p3.png" alt="planet" loading="lazy" decoding="async" />
                 <p>
                   <span>TECHNICAL EVENTS</span>
                   Our fest's technical events include coding, robotics,
@@ -192,7 +195,7 @@
           <canvas class="section-starfield" aria-hidden="true"></canvas>
 
           <div class="about-left-section">
-            <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" />
+            <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" loading="lazy" decoding="async" />
           </div>
 
           <div class="about-right-section">
@@ -296,12 +299,9 @@
         <div class="middle-section-content">
           <h3>Become a Sponsor</h3>
 
-          <button
-            class="btn"
-            onclick="window.location.href = 'sponsor/sponsor.html'"
-          >
+          <a class="btn" href="sponsor/sponsor.html">
             <span class="btn-label">HERE</span>
-          </button>
+          </a>
         </div>
       </div>
 
