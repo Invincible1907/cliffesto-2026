@@ -704,7 +704,10 @@ section {
   gap: 10px;
 }
 
-.event-right-section .event-item p button {
+.event-right-section .event-item p .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   border: 1px solid white;
   border-radius: 20px;
@@ -2108,19 +2111,35 @@ img {
   }
 
   .events .event-right-section {
-    min-height: 55svh;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
     border-left: 0;
     gap: 2.5rem;
     padding: 2rem 1.5rem 4rem;
   }
 
+  .event-right-section .event-item {
+    width: 100%;
+  }
+
   .event-right-section .event-item a {
+    width: 100%;
+    align-items: flex-start;
     padding: 0;
     gap: 1.5rem;
   }
 
   .event-right-section .event-item img {
+    flex: 0 0 clamp(6rem, 18vw, 9rem);
     width: clamp(6rem, 18vw, 9rem);
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .event-right-section .event-item p {
+    min-width: 0;
+    margin: 0;
   }
 
   .about-club {

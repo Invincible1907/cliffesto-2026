@@ -47,3 +47,15 @@ function animateElements() {
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(animateElements);
 });
+
+const eventCardTap = window.matchMedia('(max-width: 630px), (hover: none), (pointer: coarse)');
+document.querySelectorAll('.item-container').forEach((card) => {
+  const registrationLink = card.querySelector('.action[href]');
+  if (!registrationLink) return;
+
+  card.addEventListener('click', (event) => {
+    if (!eventCardTap.matches) return;
+    event.preventDefault();
+    window.location.assign(registrationLink.href);
+  });
+});
