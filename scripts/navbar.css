@@ -268,6 +268,8 @@ body.loading {
   z-index: 1000;
   display: block;
   width: min(100%, 360px);
+  max-height: 100dvh;
+  overflow-y: auto;
   padding-bottom: env(safe-area-inset-bottom);
   border-radius: 1.5rem 0 0 1.5rem;
   background: rgba(22, 22, 22, 0.5);
@@ -312,7 +314,7 @@ body.loading {
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  transform: translateY(30px);
+  transform: none;
 }
 
 .quick-access .quick-access-list {
@@ -329,9 +331,9 @@ body.loading {
 .quick-access-list a {
   display: block;
   max-width: 100%;
-  overflow: hidden;
+  overflow-wrap: anywhere;
   font-size: clamp(1.8rem, 7vw, 3rem);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .quick-access-sidebar {
@@ -456,4 +458,22 @@ body.loading {
     padding: 0.6rem 0.45rem;
     font-size: 11px;
   }
+}
+
+@media (max-width: 900px) {
+  .header .navbar-items {
+    display: none;
+  }
+
+  .header .menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
 }

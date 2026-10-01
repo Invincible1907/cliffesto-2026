@@ -138,6 +138,7 @@
       menu.style.right = open ? "0%" : "-100%";
       menu.setAttribute("aria-hidden", String(!open));
       menuButton.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("menu-open", open);
     }
 
     window.toggleMenu = function () {
@@ -185,7 +186,7 @@
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("navbar.css", script.src).href;
+  stylesheet.href = new URL("navbar.css?v=responsive-2", script.src).href;
   document.head.appendChild(stylesheet);
 
   if (document.readyState === "loading") {

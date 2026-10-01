@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=smooth-motion-5" />
 
     <title>Cliffesto</title>
     <style type="text/css">
@@ -188,38 +188,6 @@
         </div>
       </section>
 
-      <!-- ------------about us------------ -->
-
-      <section class="about" id="about">
-        <div class="about-container">
-          <canvas class="section-starfield" aria-hidden="true"></canvas>
-
-          <div class="about-left-section">
-            <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" loading="lazy" decoding="async" />
-          </div>
-
-          <div class="about-right-section">
-            <h3>ABOUT US</h3>
-
-            <p>
-              Welcome to Cliffesto 2026, where innovation meets celebration!
-              Step into the vibrant world of NIT's annual techno-cultural fest,
-              a one-of-a-kind extravaganza that bridges the realms of
-              technology, creativity, and culture. Cliffesto is more than just
-              an event—it's a symphony of ideas, talent, and passion, designed
-              to ignite the spark of imagination and innovation in every
-              participant. With electrifying competitions, enriching workshops,
-              mesmerizing cultural performances, and inspiring sessions by
-              thought leaders, Cliffesto is the ultimate confluence of
-              technology and art. Join us in this grand celebration, where the
-              boundaries between tech and culture dissolve, and the future of
-              creativity comes to life. Celebrate the spirit of innovation and
-              culture at Cliffesto 2026!
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- 
 
 		<!-- --------------------navikarnam----------------------- -->
@@ -278,26 +246,81 @@
 		</section> -->
     </main>
 
+    <section class="sponsors" id="sponsors" aria-labelledby="sponsors-title">
+      <canvas class="section-starfield" aria-hidden="true"></canvas>
+
+      <div class="sponsors-heading">
+        <p class="sponsors-kicker">WITH SUPPORT FROM</p>
+        <h2 id="sponsors-title">OUR SPONSORS</h2>
+      </div>
+
+      <div class="sponsor-grid">
+        <article class="sponsor-card">
+          <img src="images/koed.jpeg" alt="KOED" loading="eager" decoding="async" />
+          <span class="sponsor-name">KOED</span>
+        </article>
+
+        <article class="sponsor-card sponsor-card-text" aria-label="Technosys Systems">
+          <div class="technosys-mark" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="technosys-wordmark">
+            <strong>technosys</strong>
+            <span>systems</span>
+          </div>
+          <span class="sponsor-name">TECHNOSYS SYSTEMS</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-container">
+        <canvas class="section-starfield" aria-hidden="true"></canvas>
+
+        <div class="about-left-section">
+          <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/elem-2.png" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="about-right-section">
+          <h3>ABOUT US</h3>
+
+          <p>
+            Welcome to Cliffesto 2026, where innovation meets celebration!
+            Step into the vibrant world of NIT's annual techno-cultural fest,
+            a one-of-a-kind extravaganza that bridges the realms of
+            technology, creativity, and culture. Cliffesto is more than just
+            an event—it's a symphony of ideas, talent, and passion, designed
+            to ignite the spark of imagination and innovation in every
+            participant. With electrifying competitions, enriching workshops,
+            mesmerizing cultural performances, and inspiring sessions by
+            thought leaders, Cliffesto is the ultimate confluence of
+            technology and art. Join us in this grand celebration, where the
+            boundaries between tech and culture dissolve, and the future of
+            creativity comes to life. Celebrate the spirit of innovation and
+            culture at Cliffesto 2026!
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- -------------------footer-------------- -->
 
     <footer class="footer" id="footer">
+      <canvas class="section-starfield" aria-hidden="true"></canvas>
+
       <div class="footer-left-section">
         <div class="left-section-content">
           <img src="https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/images/logo1.png" />
-
-          <div class="title-tagline">
-            <h3>CLIFFESTO</h3>
-            <p>Unleash the Excitement!</p>
-          </div>
         </div>
 
         <div class="left-section-img"></div>
+        <a class="footer-gallery-btn" href="past-events.html">EVENT GALLERY</a>
       </div>
 
       <div class="footer-middle-section">
         <div class="middle-section-img"></div>
         <div class="middle-section-content">
-          <h3>Become a Sponsor</h3>
+          <h3>BECOME A SPONSOR</h3>
 
           <a class="btn" href="sponsor/sponsor.html">
             <span class="btn-label">HERE</span>
@@ -315,7 +338,6 @@
         >
           Join Now!!!
         </a>
-        <p class="exclusive-merch">Get exclusive merch</p>
         <div class="social-media-icons">
           <a
             class="btn"
@@ -337,9 +359,6 @@
             <i class="bx bxl-linkedin"></i>
           </a>
 
-          <a href="#" class="reset">
-            <i class="bx bx-right-arrow-alt"></i>
-          </a>
         </div>
       </div>
     </footer>
@@ -376,5 +395,5 @@
   ></script>
 
   <!--=============== MAIN JS ===============-->
-  <script src="script.js?v=starfield-2"></script>
+  <script src="script.js?v=smooth-motion-5"></script>
 </html>

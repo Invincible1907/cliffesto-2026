@@ -4,13 +4,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 function toggleMenu() {
   var menu = document.querySelector(".menu");
+  if (!menu) return;
+
   menu.style.right =
     menu.style.right === "-100%" || menu.style.right === "" ? "0%" : "-100%";
-
-  gsap.from(".menu-socials", {
-    x: "-100%",
-    duration: 1,
-  });
 }
 
 document.addEventListener("click", function (event) {
@@ -39,10 +36,12 @@ function animateElements() {
     { y: "0%", opacity: 1, duration: 1, ease: "power2.out" }
   );
 
-  baffle(".title h1").reveal(500).set({
-    characters: "▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░",
-    speed: 150,
-  });
+  if (typeof baffle === "function") {
+    baffle(".title h1").reveal(500).set({
+      characters: "▒░░░░█░░▒█▓▓░█/░░>▒/▒/▓▒░",
+      speed: 150,
+    });
+  }
 
 }
 
@@ -451,19 +450,6 @@ function initializeStarfieldCanvas(canvas) {
 
 }
 
-document.addEventListener("mousemove", parallax);
-
-function parallax(e) {
-  const landing_img = document.querySelector(".landing-page-img");
-  const title = document.querySelector(".title");
-  if (!landing_img) return;
-
-  var x = (e.clientX * -2) / 250;
-  var y = (e.clientY * -2) / 250;
-
-  title.style.transform = `translateX(${-x}px) translateY(${-y}px)`;
-}
-
 // Scroll-triggered animations for the home section
 gsap.to(".title", {
   y: "-100px",
@@ -476,7 +462,7 @@ gsap.to(".title", {
   force3D: true,
 });
 gsap.to(".landing-page-img", {
-  y: "100px",
+  yPercent: 8,
   scrollTrigger: {
     trigger: ".landing-page",
     start: "bottom bottom",
@@ -576,6 +562,19 @@ gsap.from(".navi-right-section", {
     scrub: 1,
   },
 });
+
+window.addEventListener("load", function () {
+  if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+});
+
+let refreshFrame = null;
+window.addEventListener("resize", function () {
+  if (refreshFrame !== null) return;
+  refreshFrame = window.requestAnimationFrame(function () {
+    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+    refreshFrame = null;
+  });
+}, { passive: true });
 
 //active class
 
@@ -706,3 +705,13 @@ const sendEmail = (e) => {
 if (contactForm) {
   contactForm.addEventListener("submit", sendEmail);
 }
+
+document.addEventListener("click", function (event) {
+  const action = event.target.closest(
+    ".footer-gallery-btn, .footer-middle-section .btn, .join-campus-btn"
+  );
+
+  if (action && typeof navigator.vibrate === "function") {
+    navigator.vibrate(12);
+  }
+});
