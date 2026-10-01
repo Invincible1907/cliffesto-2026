@@ -288,8 +288,8 @@ function initializeStarfieldCanvas(canvas) {
     context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
     const starCount = isTouchDevice
-      ? Math.min(700, Math.max(420, Math.floor((width * height) / 3000)))
-      : Math.min(3000, Math.max(1200, Math.floor((width * height) / 1000)));
+      ? Math.min(900, Math.max(520, Math.floor((width * height) / 2600)))
+      : Math.min(3600, Math.max(1500, Math.floor((width * height) / 850)));
     stars = Array.from({ length: starCount }, function () {
       const originX = Math.random() * width;
       const originY = Math.random() * height;
