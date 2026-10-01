@@ -122,15 +122,6 @@
       document.body.appendChild(switcher);
     }
 
-    if (!page.endsWith("/index.html") && !page.endsWith("/") && !document.querySelector(".page-back")) {
-      const back = document.createElement("a");
-      back.className = "page-back";
-      back.href = url(currentCategory ? "events/" : "home");
-      back.textContent = currentCategory ? "BACK TO EVENTS" : "BACK TO HOME";
-      back.setAttribute("aria-label", back.textContent);
-      document.body.appendChild(back);
-    }
-
     const menuButton = header.querySelector(".menu-icon");
     const closeButton = menu.querySelector(".quick-access-close");
 
@@ -186,7 +177,7 @@
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("navbar.css?v=responsive-2", script.src).href;
+  stylesheet.href = new URL("navbar.css?v=responsive-3", script.src).href;
   document.head.appendChild(stylesheet);
 
   if (document.readyState === "loading") {

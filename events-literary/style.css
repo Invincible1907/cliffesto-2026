@@ -284,6 +284,29 @@ body.dark {
   }
 }
 
+@media (max-width: 700px) {
+  .container {
+    min-height: 100svh;
+    padding: 7rem 0.75rem 3rem;
+  }
+
+  .item-container {
+    width: min(100%, 34rem);
+    margin: 0.75rem auto;
+    overflow: visible;
+  }
+
+  .action,
+  .item-container:hover .action {
+    position: static;
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 1rem;
+    transform: none;
+  }
+}
+
 .item-container {
   position: relative;
   margin: 24px;

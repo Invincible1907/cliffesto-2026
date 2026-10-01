@@ -724,7 +724,10 @@ main,
 
 @media (max-width: 767px) {
   .events-carousel-page .page-back {
-    display: none;
+    display: inline-flex;
+    left: 1rem;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+    z-index: 20;
   }
 
   body {
@@ -761,15 +764,13 @@ main,
   }
 
   .slider .list .item .content p:last-child {
-    position: fixed;
-    z-index: 10;
-    left: 50%;
-    bottom: calc(max(3rem, env(safe-area-inset-bottom, 0px)) + 56px);
-    width: max-content;
+    position: static;
+    z-index: auto;
+    width: fit-content;
     max-width: calc(100vw - 32px);
-    margin: 0;
+    margin: 0.5rem auto 0;
     padding: 0;
-    transform: translateX(-50%);
+    transform: none;
     justify-content: center;
   }
 

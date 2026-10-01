@@ -937,6 +937,12 @@ body {
 }
 
 @media (max-width: 700px) {
+  section,
+  .register,
+  .register .container {
+    overflow: visible;
+  }
+
   .register .container .login-form,
   .register .container .register-form {
     width: min(100%, 48rem);

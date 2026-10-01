@@ -2214,3 +2214,56 @@ img {
   background: linear-gradient(135deg, rgba(0, 255, 237, 0.24), rgba(157, 0, 198, 0.38));
   box-shadow: 0 0 28px rgba(0, 255, 237, 0.4);
 }
+
+@media (max-width: 850px) {
+  .footer .footer-left-section,
+  .footer .footer-middle-section,
+  .footer .footer-right-section {
+    height: auto;
+    min-height: 30rem;
+    justify-content: center;
+  }
+
+  .footer .footer-left-section .left-section-content {
+    padding-top: 0;
+  }
+
+  .footer .footer-left-section .left-section-img {
+    display: none;
+  }
+
+  .footer .footer-left-section .footer-gallery-btn,
+  .footer .footer-middle-section .middle-section-content .btn,
+  .footer .footer-right-section .join-campus-btn {
+    position: static;
+    margin: 1.8rem auto 0;
+    transform: none;
+  }
+
+  .footer .footer-middle-section .middle-section-content {
+    position: relative;
+    inset: auto;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .footer .footer-middle-section .middle-section-content h3 {
+    margin-bottom: 0;
+  }
+
+  .footer .footer-right-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .footer .footer-right-section h4 {
+    margin-top: 0;
+  }
+
+  .footer .footer-right-section .social-media-icons {
+    margin-top: 3rem;
+    padding-bottom: 0;
+  }
+}
