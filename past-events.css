@@ -151,9 +151,13 @@ footer {
 .gallery-card {
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
+  border: 0;
   background: var(--panel);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 66.666' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M10 0H39C43 0 46 2 49 5L54 11C57 14 60 15 64 15H95C98 15 100 17 100 20V56.666C100 62.189 95.523 66.666 90 66.666H10C4.477 66.666 0 62.189 0 56.666V10C0 4.477 4.477 0 10 0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 66.666' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M10 0H39C43 0 46 2 49 5L54 11C57 14 60 15 64 15H95C98 15 100 17 100 20V56.666C100 62.189 95.523 66.666 90 66.666H10C4.477 66.666 0 62.189 0 56.666V10C0 4.477 4.477 0 10 0Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  filter: drop-shadow(0 0 1px var(--line));
   animation: reveal 700ms ease both;
 }
 

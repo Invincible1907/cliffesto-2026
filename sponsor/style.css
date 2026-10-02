@@ -45,9 +45,10 @@ body {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* -----------------------HEADER-------------------------- */
@@ -488,17 +489,41 @@ select::placeholder {
 }
 
 .sponsor-highlight {
-  display: inline-block;
-  padding: 0.8rem 1.2rem;
-  border: 2px solid #f1c40f;
-  border-radius: 0.35rem;
-  color: #f1c40f;
-  text-shadow: 0 0 12px rgba(241, 196, 15, 0.55);
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 8px 14px;
+  border: 1px solid white;
+  border-radius: 50px;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+.sponsor-highlight:hover,
+.sponsor-highlight:focus-visible {
+  color: black;
+  text-shadow: none;
+}
+
+.sponsor-highlight:focus-visible::before {
+  right: auto;
+  left: 0;
+  width: 100%;
 }
 
 .multicity-partner {
-  color: #f1c40f;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(18px, 2vw, 26px);
   font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 30px;
 }
 
 .past-sponsors img {
@@ -756,22 +781,34 @@ strong {
 /* ---media-queries--- */
 
 @media (max-width: 1100px) {
+  .register .container {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 9rem 2rem 4rem;
+  }
+
+  .register .container .register-content,
+  .register .container .login-form {
+    width: min(100%, 72rem);
+    padding: 0;
+    border: none;
+  }
+
   .register .container .register-content {
-    display: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .register .container .register-content p {
+    width: min(90%, 72rem);
   }
 
   .register .container .login-form .wrapper b {
     display: flex;
   }
 
-  .register .container .login-form,
-  .register .container .register-form {
-    width: 80%;
-    border: none;
-  }
-
-  .register .container .register-form .wrapper .input-box input {
-    padding: 16px;
+  .register .container .login-form .wrapper {
+    width: 100%;
   }
 }
 

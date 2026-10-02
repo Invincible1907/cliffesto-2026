@@ -266,20 +266,26 @@ body.loading {
   right: -100%;
   bottom: 0;
   z-index: 1000;
-  display: block;
-  width: min(100%, 360px);
+  display: flex;
+  flex-direction: column;
+  width: min(88vw, 300px);
+  height: 100vh;
+  height: 100dvh;
   max-height: 100dvh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-bottom: env(safe-area-inset-bottom);
-  border-radius: 1.5rem 0 0 1.5rem;
-  background: rgba(22, 22, 22, 0.5);
-  backdrop-filter: blur(10px);
+  border-radius: 72px 0 0 72px;
+  background: rgba(7, 9, 16, 0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: -18px 0 48px rgba(0, 0, 0, 0.48), inset 1px 0 rgba(0, 255, 237, 0.2);
   transition: right ease 0.3s;
 }
 
 .quick-access-content {
   display: flex;
   width: 100%;
+  min-height: 100%;
   flex-direction: column;
 }
 
@@ -290,11 +296,12 @@ body.loading {
 .quick-access-head {
   position: relative;
   display: flex;
+  flex: 0 0 60px;
   height: 60px;
   align-items: center;
   justify-content: center;
   padding: 0 56px 0 1.5rem;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .quick-access-head img {
@@ -308,32 +315,70 @@ body.loading {
 .quick-access-list {
   display: flex;
   width: 100%;
-  height: calc(100% - 60px);
+  flex: 1;
+  height: auto;
   flex-direction: column;
-  row-gap: 5vh;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
+  row-gap: 30px;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 1.8rem 1.6rem 2rem;
   transform: none;
 }
 
 .quick-access .quick-access-list {
   width: 100%;
-  padding: 2rem 1rem;
+  padding: calc(1.8rem + 50px) 0 2rem;
 }
 
 .quick-access-list .quick-access-home {
+  width: 100%;
   max-width: 100%;
-  padding: 1rem;
-  text-align: center;
+  padding: 0;
 }
 
 .quick-access-list a {
-  display: block;
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  padding: 0 1.2rem 0 calc(clamp(40px, 12vw, 64px) + 1.2rem - 20px);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: Anurati, "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: uppercase;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  text-decoration: none;
   max-width: 100%;
   overflow-wrap: anywhere;
-  font-size: clamp(1.8rem, 7vw, 3rem);
   white-space: normal;
+}
+
+.quick-access-list .quick-access-home.active {
+  border-radius: 8px;
+  background: transparent;
+}
+
+.quick-access-list .quick-access-home.active a {
+  background: linear-gradient(90deg, rgba(0, 255, 237, 0.16), rgba(0, 255, 237, 0.07) 58%, transparent 100%);
+  color: #fff;
+}
+
+.quick-access-list a:hover,
+.quick-access-list a:focus-visible {
+  transform: none;
+  background: linear-gradient(90deg, rgba(0, 255, 237, 0.16), rgba(0, 255, 237, 0.07) 58%, transparent 100%);
+  color: #fff;
+}
+
+.quick-access-list a:focus-visible {
+  outline: 2px solid rgba(0, 255, 237, 0.65);
+  outline-offset: -2px;
 }
 
 .quick-access-sidebar {
@@ -342,20 +387,29 @@ body.loading {
 
 .quick-access-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 60px;
-  max-width: 4.8rem;
-  border: none;
-  border-bottom: 1px solid white;
-  background: transparent;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
   color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.quick-access-close:hover,
+.quick-access-close:focus-visible {
+  border-color: rgba(0, 255, 237, 0.55);
+  background: rgba(0, 255, 237, 0.12);
 }
 
 @media (min-width: 701px) {
   .quick-access {
-    width: 360px;
+    width: min(88vw, 300px);
   }
 }
 
@@ -418,8 +472,8 @@ body.loading {
 }
 
 @media (max-width: 630px) {
-  .quick-access-list {
-    transform: translateY(calc(clamp(2rem, 4vh, 3rem) + 30px));
+  .quick-access {
+    width: min(88vw, 300px);
   }
 
   .header .navbar-items {

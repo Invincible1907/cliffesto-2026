@@ -50,13 +50,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
+  min-height: 100vh;
   transition: 0.25s;
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 /* -----------------------HEADER-------------------------- */

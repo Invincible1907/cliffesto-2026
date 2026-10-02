@@ -121,7 +121,8 @@ body.loaded {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   scroll-margin-top: 60px;
 }
 
@@ -1027,7 +1028,7 @@ section {
 }
 
 .footer .footer-left-section img {
-  width: 120px;
+  width: clamp(150px, 16vw, 210px);
 }
 
 .footer .footer-left-section .title-tagline h3,
@@ -1056,7 +1057,7 @@ section {
 
 .footer .footer-left-section .footer-gallery-btn {
   position: absolute;
-  top: 13rem;
+  top: calc(13rem + 40px);
   left: 50%;
   z-index: 2;
   display: inline-flex;
@@ -1162,7 +1163,7 @@ section {
   border-radius: 999px;
   display: inline-flex;
   position: absolute;
-  top: 13rem;
+  top: calc(13rem + 40px);
   left: 50%;
   z-index: 1;
   text-decoration: none;
@@ -1229,7 +1230,7 @@ section {
   display: inline-flex;
   width: 18rem;
   position: absolute;
-  top: 13rem;
+  top: calc(13rem + 40px);
   left: 50%;
   margin-top: 0;
   transform: translateX(-50%);
@@ -1760,7 +1761,7 @@ section {
   }
 
   .footer .footer-left-section img {
-    width: 80px;
+    width: 150px;
   }
 
   .events {
@@ -2255,8 +2256,14 @@ img {
   .footer .footer-middle-section .middle-section-content .btn,
   .footer .footer-right-section .join-campus-btn {
     position: static;
-    margin: 1.8rem auto 0;
+    margin: calc(1.8rem + 40px) auto 0;
     transform: none;
+  }
+
+  .footer .footer-left-section .footer-gallery-btn:hover,
+  .footer .footer-middle-section .middle-section-content .btn:hover,
+  .footer .footer-right-section .join-campus-btn:hover {
+    transform: translateY(-2px) scale(1.02);
   }
 
   .footer .footer-middle-section .middle-section-content {

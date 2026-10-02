@@ -47,7 +47,7 @@
   }
 
   function isCurrent(path) {
-    const target = new URL(path, root);
+    const target = new URL(url(path));
     return page === target.pathname && window.location.hash === target.hash;
   }
 
@@ -177,7 +177,7 @@
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("navbar.css?v=responsive-3", script.src).href;
+  stylesheet.href = new URL("navbar.css?v=responsive-4", script.src).href;
   document.head.appendChild(stylesheet);
 
   if (document.readyState === "loading") {
