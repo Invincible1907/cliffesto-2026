@@ -1211,6 +1211,27 @@ section {
   text-align: center;
 }
 
+.footer .footer-right-section h4 a {
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  transform-origin: center;
+  transition: color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer .footer-right-section h4 a:hover {
+  color: var(--robin-egg-blue);
+  transform: scale(1.04);
+}
+
+.footer .footer-right-section h4 a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--robin-egg-blue);
+  outline-offset: 4px;
+}
+
 .footer .footer-left-section::before,
 .footer .footer-middle-section::before,
 .footer .footer-right-section::before {
