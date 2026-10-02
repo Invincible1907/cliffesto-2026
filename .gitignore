@@ -34,6 +34,9 @@ Thumbs.db
 *.rar
 *.7z
 
+# Duplicate of the root sponsor PDF; keep one tracked copy
+/sponsor/sponsor/Sponsorship.pdf
+
 # Local image staging copies
 /events-technical/images/
 /gallery/1790720888306.jpg
