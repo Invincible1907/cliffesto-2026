@@ -6,6 +6,10 @@
   pageLoaderScript.src = new URL("page-loader.js", script.src).href;
   document.head.appendChild(pageLoaderScript);
 
+  document.addEventListener("dragstart", function (event) {
+    if (event.target instanceof HTMLImageElement) event.preventDefault();
+  });
+
   const root = new URL("../", script.src);
   const page = window.location.pathname;
 
@@ -177,7 +181,7 @@
 
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = new URL("navbar.css?v=responsive-4", script.src).href;
+  stylesheet.href = new URL("navbar.css?v=responsive-5", script.src).href;
   document.head.appendChild(stylesheet);
 
   if (document.readyState === "loading") {
