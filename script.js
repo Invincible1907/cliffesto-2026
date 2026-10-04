@@ -512,57 +512,6 @@ gsap.from(".event-right-section", {
   },
 });
 
-// Scroll-triggered animations for about-club section
-
-gsap.to(".about-club-bg-container img", {
-  scale: "1.5",
-  scrollTrigger: {
-    trigger: ".about-club",
-    start: "top center",
-    end: "center center",
-    scrub: 1,
-  },
-});
-gsap.from(".about-club-left-section", {
-  y: "100%",
-  scrollTrigger: {
-    trigger: ".about-club",
-    start: "top bottom",
-    end: "center center",
-    scrub: 1,
-  },
-});
-gsap.from(".about-club-right-section", {
-  y: "100%",
-  scrollTrigger: {
-    trigger: ".about-club",
-    start: "top bottom",
-    end: "center center",
-    scrub: 1,
-  },
-});
-
-// Scroll-triggered animations for the navikarnam section
-
-gsap.from(".navi-row", {
-  y: "100%",
-  scrollTrigger: {
-    trigger: ".navikarnam",
-    start: "top bottom",
-    end: "center center",
-    scrub: 1,
-  },
-});
-gsap.from(".navi-right-section", {
-  x: "-100%",
-  scrollTrigger: {
-    trigger: ".navikarnam",
-    start: "top bottom",
-    end: "center center",
-    scrub: 1,
-  },
-});
-
 window.addEventListener("load", function () {
   if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
 });

@@ -17,8 +17,18 @@ coverage/
 
 # Logs and temporary files
 *.log
+*-debug.log*
+*-error.log*
 *.tmp
 *.temp
+*.bak
+*.orig
+*.rej
+
+# Local editor history and caches
+.history/
+.eslintcache
+.stylelintcache
 
 # Operating system and editor files
 .DS_Store

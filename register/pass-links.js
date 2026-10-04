@@ -8,7 +8,8 @@
     ["General Event Pass", "GENERAL<br />EVENT PASS", "₹499", "All non-Flagship events; Pro-Nights excluded", config.passes.general],
     ["Gold Pass", "GOLD<br />PASS", "₹399", "Star Night + EDM Night", config.passes.gold],
     ["Star Night", "STAR<br />NIGHT", "₹299", "Star Night access only", config.passes.silver],
-    ["School Student Pass", "SCHOOL<br />STUDENT<br />PASS", "₹199", "All non-Flagship events for verified school students", config.passes.school]
+    ["School Student Pass", "SCHOOL<br />STUDENT<br />PASS", "₹199", "All non-Flagship events for verified school students", config.passes.school],
+    ["Accommodation Form", "ACCOMMODATION<br />FORM", "₹250/Day", "Accommodation request form", config.passes.accommodation]
   ];
 
   const topRow = passes.slice(0, 3);
@@ -19,7 +20,7 @@
     <div class="top-row">
       ${topRow.map(function (pass) {
         return `<div class="container noselect">
-          <div class="canvas" role="link" tabindex="0" aria-label="Buy ${pass[0]}" data-pass-url="${pass[4]}">
+          <div class="canvas ticket-shape" role="link" tabindex="0" aria-label="Buy ${pass[0]}" data-pass-url="${pass[4]}">
             <div class="tracker tr-1"></div><div class="tracker tr-2"></div><div class="tracker tr-3"></div>
             <div class="tracker tr-4"></div><div class="tracker tr-5"></div><div class="tracker tr-6"></div>
             <div class="tracker tr-7"></div><div class="tracker tr-8"></div><div class="tracker tr-9"></div>
@@ -43,7 +44,7 @@
     <div class="bottom-row">
       ${bottomRow.map(function (pass) {
         return `<div class="container noselect">
-          <div class="canvas" role="link" tabindex="0" aria-label="Buy ${pass[0]}" data-pass-url="${pass[4]}">
+          <div class="canvas ticket-shape" role="link" tabindex="0" aria-label="Buy ${pass[0]}" data-pass-url="${pass[4]}">
             <div class="tracker tr-1"></div><div class="tracker tr-2"></div><div class="tracker tr-3"></div>
             <div class="tracker tr-4"></div><div class="tracker tr-5"></div><div class="tracker tr-6"></div>
             <div class="tracker tr-7"></div><div class="tracker tr-8"></div><div class="tracker tr-9"></div>

@@ -307,6 +307,25 @@ section {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+.ticket-shape #card {
+  background: linear-gradient(
+    145deg,
+    rgba(13, 38, 78, 0.88),
+    rgba(6, 17, 42, 0.94)
+  );
+  clip-path: polygon(
+    8% 0, 92% 0, 96% 1%, 99% 4%, 100% 8%, 100% 65%,
+    98.8% 66%, 97.4% 67.2%, 96.1% 68.8%, 95.1% 70.4%, 94.8% 72%,
+    95.1% 73.6%, 96.1% 75.2%, 97.4% 76.8%, 98.8% 78%, 100% 79%,
+    100% 92%, 99% 96%, 96% 99%, 92% 100%, 8% 100%,
+    4% 99%, 1% 96%, 0 92%, 0 79%,
+    1.2% 78%, 2.6% 76.8%, 3.9% 75.2%, 4.9% 73.6%, 5.2% 72%,
+    4.9% 70.4%, 3.9% 68.8%, 2.6% 67.2%, 1.2% 66%, 0 65%,
+    0 8%, 1% 4%, 4% 1%
+  );
+  border-radius: 0;
+}
+
 .card-content {
   position: relative;
   width: 100%;
@@ -958,32 +977,46 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2.2rem;
   width: 100%;
 }
 
-.top-row {
-  max-width: 920px;
-}
-
+.top-row,
 .bottom-row {
-  max-width: 560px;
+  max-width: 980px;
 }
 
 .top-row > .container,
 .bottom-row > .container {
-  width: 100%;
-  max-width: 240px;
+  flex: 0 0 280px;
+  width: 280px;
+  max-width: 280px;
   min-width: 0;
 }
 
 .content .container {
   position: relative;
   width: 100%;
-  max-width: 240px;
-  height: clamp(260px, 33vw, 390px);
-  min-height: 260px;
+  max-width: 280px;
+  height: clamp(300px, 37vw, 430px);
+  min-height: 300px;
   margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .top-row > .container,
+  .bottom-row > .container {
+    flex: 0 0 240px;
+    width: 240px;
+    max-width: 240px;
+  }
+
+  .content .container {
+    max-width: 240px;
+    height: 380px;
+  }
+
 }
 
 .pass-page-content {

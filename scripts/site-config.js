@@ -6,7 +6,8 @@ window.CLIFFESTO_CONFIG = {
     platinum: "https://unstop.com/competitions/blash-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763511",
     general: "https://unstop.com/competitions/strategia-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763494",
     gold: "https://unstop.com/competitions/triwizathon-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763517",
-    school: "https://unstop.com/competitions/tech-expo-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763459"
+    school: "https://unstop.com/competitions/tech-expo-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763459",
+    accommodation: "https://forms.gle/W13F86dsZwYoGbhH8"
   },
   events: {
     footworkFiesta: "https://unstop.com/events/footwork-fiesta-the-dance-competition-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762172",
