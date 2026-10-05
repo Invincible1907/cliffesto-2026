@@ -2,7 +2,7 @@ window.CLIFFESTO_CONFIG = {
   festivalUrl: "https://unstop.com/college-fests/cliffesto26-national-institute-of-technology-nit-uttarakhand-451478",
   instagramUrl: "https://www.instagram.com/cliffestonituk?stkn=MWJqdWI2NHZ2eDRleg==",
   passes: {
-    silver: "https://unstop.com/competitions/blash-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763511",
+    silver: "https://unstop.com/events/star-night-cliffesto26-national-institute-of-technology-nit-uttarakhand-1762246",
     platinum: "https://unstop.com/competitions/blash-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763511",
     general: "https://unstop.com/competitions/strategia-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763494",
     gold: "https://unstop.com/competitions/triwizathon-cliffesto26-national-institute-of-technology-nit-uttarakhand-1763517",

@@ -7,7 +7,7 @@
     ["Platinum Pass", "PLATINUM<br />PASS", "₹799", "Star Night + EDM Night + all non-Flagship events", config.passes.platinum],
     ["General Event Pass", "GENERAL<br />EVENT PASS", "₹499", "All non-Flagship events; Pro-Nights excluded", config.passes.general],
     ["Gold Pass", "GOLD<br />PASS", "₹399", "Star Night + EDM Night", config.passes.gold],
-    ["Star Night", "STAR<br />NIGHT", "₹299", "Star Night access only", config.passes.silver],
+    ["Star Night Pass", "STAR<br />NIGHT", "₹299", "Star Night access only", config.passes.silver],
     ["School Student Pass", "SCHOOL<br />STUDENT<br />PASS", "₹199", "All non-Flagship events for verified school students", config.passes.school],
     ["Accommodation Form", "ACCOMMODATION<br />FORM", "₹250/Day", "Accommodation request form", config.passes.accommodation]
   ];
