@@ -406,7 +406,8 @@ section {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.72;
+  opacity: 0.9;
+  mix-blend-mode: screen;
 }
 
 .sponsors-about-flow {
