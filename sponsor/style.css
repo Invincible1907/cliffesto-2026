@@ -259,24 +259,27 @@ a {
 
 main {
   position: relative;
-  background: url(https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/sponsor/images/bg-4.png);
+  background:
+    radial-gradient(circle at 18% 28%, rgba(157, 0, 198, 0.18), transparent 32%),
+    radial-gradient(circle at 82% 32%, rgba(0, 255, 237, 0.12), transparent 30%),
+    url(https://cdn.jsdelivr.net/gh/Invincible1907/cliffesto-2026@main/CDN_Images/sponsor/images/bg-4.png);
   background-size: cover;
   background-attachment: fixed;
 }
 
 main > :not(.sponsor-starfield) {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .sponsor-starfield {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.72;
+  opacity: 0.9;
 }
 
 .register {
@@ -290,7 +293,7 @@ main > :not(.sponsor-starfield) {
 .register .container {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -472,10 +475,169 @@ select::placeholder {
   font-size: 32px;
 }
 
+.current-sponsors {
+  position: relative;
+  min-height: 0;
+  height: auto;
+  padding: 7rem clamp(1.5rem, 5vw, 6rem);
+  background: transparent;
+  isolation: isolate;
+}
+
+.current-sponsors-heading {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.current-sponsors-kicker {
+  margin-bottom: 0.8rem;
+  color: var(--robin-egg-blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.current-sponsors-heading h2,
+.travel-partner h2 {
+  color: white;
+  font-size: clamp(2.8rem, 4vw, 5rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  font-family: Anurati, "Poppins", sans-serif;
+}
+
+.current-sponsor-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 100rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin: 0 auto;
+}
+
+.current-sponsor-card:nth-child(4) {
+  grid-column: 2;
+}
+
+.current-sponsor-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(0, 255, 237, 0.7);
+  border-radius: 2rem 0.6rem 2rem 0.6rem;
+  background: rgba(9, 8, 25, 0.45);
+  box-shadow:
+    inset 0 0 2rem rgba(0, 255, 237, 0.035),
+    0 1rem 3rem rgba(0, 0, 0, 0.35),
+    0 0 1.2rem rgba(157, 0, 198, 0.12);
+}
+
+.current-sponsor-card img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.current-sponsor-card--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(20, 23, 39, 0.96), rgba(8, 10, 20, 0.96));
+}
+
+.current-sponsor-card--logo img {
+  position: static;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+.current-sponsor-card--five-river img {
+  width: min(100%, 30rem);
+}
+
+.current-sponsor-card--legacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 3rem;
+  background: linear-gradient(145deg, rgba(20, 23, 39, 0.96), rgba(8, 10, 20, 0.96));
+}
+
+.current-sponsor-card--legacy img {
+  position: static;
+  width: min(100%, 22rem);
+  height: 16rem;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.current-sponsor-card--technosys {
+  color: #ef3b37;
+}
+
+.current-sponsor-card--technosys .technosys-mark {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border: 1.1rem solid #ef3b37;
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-35deg);
+}
+
+.current-sponsor-card--technosys .technosys-mark span {
+  position: absolute;
+  inset: 1.4rem;
+  border: 0.8rem solid #f58a27;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.current-sponsor-card--technosys .technosys-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0.9;
+}
+
+.current-sponsor-card--technosys .technosys-wordmark strong {
+  font-size: clamp(2.8rem, 4vw, 4.8rem);
+  letter-spacing: -0.04em;
+}
+
+.current-sponsor-card--technosys .technosys-wordmark span {
+  align-self: flex-end;
+  margin-top: 0.7rem;
+  color: #f4772b;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+}
+
+.current-sponsor-name {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
 .past-sponsors {
   width: 100%;
   padding: 6rem 4rem 8rem;
-  background: rgba(0, 0, 0, 0.35);
+  background: transparent;
   text-align: center;
 }
 
@@ -978,6 +1140,19 @@ body {
   .register,
   .register .container {
     overflow: visible;
+  }
+
+  .current-sponsor-grid {
+    grid-template-columns: 1fr;
+    width: min(100%, 42rem);
+  }
+
+  .current-sponsor-card:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .current-sponsors {
+    padding: 5rem 1.5rem;
   }
 
   .register .container .login-form,

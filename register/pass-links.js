@@ -9,7 +9,7 @@
     ["Gold Pass", "GOLD<br />PASS", "₹399", "Star Night + EDM Night", config.passes.gold],
     ["Star Night Pass", "STAR<br />NIGHT", "₹299", "Star Night access only", config.passes.silver],
     ["School Student Pass", "SCHOOL<br />STUDENT<br />PASS", "₹199", "All non-Flagship events for verified school students", config.passes.school],
-    ["Accommodation Form", "ACCOMMODATION<br />FORM", "₹250/Day", "Accommodation request form", config.passes.accommodation]
+    ["Accommodation Form", "ACCOMMODATION<br />FORM", "₹100/Day", "Accommodation request form", config.passes.accommodation]
   ];
 
   const topRow = passes.slice(0, 3);

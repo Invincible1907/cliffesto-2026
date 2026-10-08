@@ -37,6 +37,9 @@ function initializeSponsorStarfield() {
   const canvas = document.querySelector('.sponsor-starfield');
   if (!canvas) return;
 
+  const section = canvas.parentElement;
+  if (!section) return;
+
   const context = canvas.getContext('2d');
   const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   const pointer = { x: -1000, y: -1000 };
@@ -52,19 +55,22 @@ function initializeSponsorStarfield() {
     targetStrength: 0,
   };
   let stars = [];
-  let animationFrame;
+  let animationFrame = null;
   let lastFrame = 0;
+  let isVisible = false;
 
   function resizeCanvas() {
-    const ratio = isTouchDevice ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+    const pixelRatio = isTouchDevice ? 1 : Math.min(window.devicePixelRatio || 1, 2);
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    canvas.width = width * pixelRatio;
+    canvas.height = height * pixelRatio;
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
     const starCount = isTouchDevice
-      ? Math.min(900, Math.max(540, Math.floor((width * height) / 2400)))
-      : Math.min(6000, Math.max(4200, Math.floor((width * height) / 500)));
+      ? Math.min(900, Math.max(520, Math.floor((width * height) / 2600)))
+      : Math.min(3600, Math.max(1500, Math.floor((width * height) / 850)));
+
     stars = Array.from({ length: starCount }, function () {
       const originX = Math.random() * width;
       const originY = Math.random() * height;
@@ -84,8 +90,9 @@ function initializeSponsorStarfield() {
   }
 
   function updatePointer(event) {
-    pointer.x = event.clientX;
-    pointer.y = event.clientY;
+    const bounds = canvas.getBoundingClientRect();
+    pointer.x = event.clientX - bounds.left;
+    pointer.y = event.clientY - bounds.top;
   }
 
   function resetPointer() {
@@ -95,15 +102,17 @@ function initializeSponsorStarfield() {
 
   function startSwipe(event) {
     if (!isTouchDevice || !event.touches[0]) return;
+    const bounds = canvas.getBoundingClientRect();
     swipe.active = true;
-    swipe.x = event.touches[0].clientX;
-    swipe.y = event.touches[0].clientY;
+    swipe.x = event.touches[0].clientX - bounds.left;
+    swipe.y = event.touches[0].clientY - bounds.top;
   }
 
   function moveSwipe(event) {
     if (!swipe.active || !event.touches[0]) return;
-    const touchX = event.touches[0].clientX;
-    const touchY = event.touches[0].clientY;
+    const bounds = canvas.getBoundingClientRect();
+    const touchX = event.touches[0].clientX - bounds.left;
+    const touchY = event.touches[0].clientY - bounds.top;
     const deltaX = touchX - swipe.x;
     const deltaY = touchY - swipe.y;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -123,6 +132,11 @@ function initializeSponsorStarfield() {
   }
 
   function renderStars(timestamp) {
+    if (!isVisible) {
+      animationFrame = null;
+      return;
+    }
+
     if (isTouchDevice && timestamp - lastFrame < 33) {
       animationFrame = window.requestAnimationFrame(renderStars);
       return;
@@ -144,8 +158,9 @@ function initializeSponsorStarfield() {
       const distanceY = star.y - pointer.y;
       const distanceSquared = distanceX * distanceX + distanceY * distanceY;
       const repelRadius = isTouchDevice ? 90 : 160;
+      const repelRadiusSquared = repelRadius * repelRadius;
 
-      if (distanceSquared < repelRadius * repelRadius && distanceSquared > 0) {
+      if (distanceSquared < repelRadiusSquared && distanceSquared > 0) {
         const distance = Math.sqrt(distanceSquared);
         const force = (repelRadius - distance) / repelRadius;
         star.velocityX += (distanceX / distance) * force * (isTouchDevice ? 0.35 : 1.15);
@@ -171,26 +186,47 @@ function initializeSponsorStarfield() {
       star.x += star.velocityX;
       star.y += star.velocityY;
 
+      if (star.x < -4) star.x = width + 4;
+      if (star.x > width + 4) star.x = -4;
+      if (star.y < -4) star.y = height + 4;
+      if (star.y > height + 4) star.y = -4;
+
       const pulse = isTouchDevice ? 0 : Math.sin(timestamp * star.twinkle + star.phase) * 0.18;
-      context.fillStyle = `rgba(255, 255, 255, ${Math.max(0.08, star.alpha + pulse)})`;
+      const alpha = Math.max(0.08, star.alpha + pulse);
+      context.fillStyle = `rgba(255, 255, 255, ${alpha})`;
       context.fillRect(star.x, star.y, star.radius, star.radius);
     });
+
     animationFrame = window.requestAnimationFrame(renderStars);
   }
 
   resizeCanvas();
-  window.addEventListener('mousemove', updatePointer, { passive: true });
-  window.addEventListener('mouseout', function (event) {
-    if (!event.relatedTarget) resetPointer();
-  }, { passive: true });
-  window.addEventListener('touchstart', startSwipe, { passive: true });
-  window.addEventListener('touchmove', moveSwipe, { passive: true });
-  window.addEventListener('touchend', endSwipe, { passive: true });
+  section.addEventListener('mousemove', updatePointer, { passive: true });
+  section.addEventListener('mouseleave', resetPointer, { passive: true });
+  section.addEventListener('touchstart', startSwipe, { passive: true });
+  section.addEventListener('touchmove', moveSwipe, { passive: true });
+  section.addEventListener('touchend', endSwipe, { passive: true });
   window.addEventListener('resize', resizeCanvas, { passive: true });
-  animationFrame = window.requestAnimationFrame(renderStars);
-  window.addEventListener('pagehide', function () {
-    window.cancelAnimationFrame(animationFrame);
-  }, { once: true });
+
+  const visibilityObserver = new IntersectionObserver(
+    function (entries) {
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(renderStars);
+      }
+    },
+    { threshold: 0.01 }
+  );
+  visibilityObserver.observe(section);
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lastFrame = -33;
+    renderStars(0);
+    if (animationFrame) {
+      window.cancelAnimationFrame(animationFrame);
+    }
+    return;
+  }
 }
 
 function elemAnimation() {

@@ -1492,6 +1492,26 @@ section {
   mix-blend-mode: screen;
 }
 
+.sponsor-card--logo {
+  min-height: 18rem;
+  background:
+    linear-gradient(145deg, rgba(20, 23, 39, 0.96), rgba(8, 10, 20, 0.96)) padding-box,
+    linear-gradient(135deg, rgba(0, 255, 237, 0.78), rgba(157, 0, 198, 0.82)) border-box;
+}
+
+.sponsor-card--logo img {
+  width: min(100%, 28rem);
+  height: auto;
+  max-height: 18rem;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+.sponsor-card--five-river img {
+  width: min(100%, 34rem);
+  max-height: 14rem;
+}
+
 .sponsor-name {
   position: absolute;
   right: 1.6rem;
