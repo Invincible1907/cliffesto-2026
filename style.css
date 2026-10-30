@@ -1431,7 +1431,7 @@ section {
 .sponsor-grid {
   display: grid;
   width: min(100%, 92rem);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin: 0 auto;
 }
@@ -1458,6 +1458,14 @@ section {
   height: 100%;
   object-fit: cover;
   mix-blend-mode: normal;
+}
+
+.sponsor-card.sponsor-featured-card.sponsor-card--logo img {
+  position: static;
+  width: min(100%, 28rem);
+  height: auto;
+  max-height: 18rem;
+  object-fit: contain;
 }
 
 .sponsor-card {
